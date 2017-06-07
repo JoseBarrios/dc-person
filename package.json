@@ -1,6 +1,6 @@
 {
   "name": "@josebarrios/person",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Person class",
   "main": "index.js",
   "scripts": {

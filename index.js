@@ -4,6 +4,7 @@ class Person {
 
   constructor(model){
     model = model || {};
+    this.model = model;
     this.additionalName = model.additionalName;
     this.address = model.address;
     this.affiliation = new Organization(model.affiliation)
@@ -19,28 +20,28 @@ class Person {
     this.image = model.image;
   }
 
-  get givenName(){ return this._givenName; }
+  get givenName(){ return this.model.givenName; }
   set givenName(string){
     if(!string) return;
-    this._givenName = string.charAt(0).toUpperCase() + string.slice(1);
+    this.model.givenName = string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  get additionalName(){ return this._additionalName; }
+  get additionalName(){ return this.model.additionalName; }
   set additionalName(string){
     if(!string) return;
-    this._additionalName = string.charAt(0).toUpperCase() + string.slice(1);
+    this.model.additionalName = string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  get familyName(){ return this._familyName; }
+  get familyName(){ return this.model.familyName; }
   set familyName(string){
     if(!string) return;
-    this._familyName = string.charAt(0).toUpperCase() + string.slice(1);
+    this.model.familyName = string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  get email(){ return this._email; }
+  get email(){ return this.model.email; }
   set email(string){
     if(!string) return;
-    this._email = string.toLowerCase();
+    this.model.email = string.toLowerCase();
   }
 
   get fullName(){
@@ -49,8 +50,7 @@ class Person {
     return name;
   }
 
-
-  stringify(){ return JSON.stringify(this) }
+  stringify(){ return JSON.stringify(this, null, '\t') }
   serialize(){ return JSON.parse(this.stringify()); }
 }
 
