@@ -3,13 +3,14 @@
 var assert = require('assert');
 var Person = require('../index.js');
 
-var personModel = {};
-personModel.givenName = 'jose';
-personModel.familyName = 'barrios';
-personModel.email = 'jose@barrios.io';
-personModel.affiliation = {};
-personModel.affiliation.name = 'BeVisible';
-let person = new Person(personModel);
+var model = {};
+model.givenName = 'jose';
+model.familyName = 'barrios';
+model.email = 'jose@barrios.io';
+model.affiliation = {};
+model.affiliation.name = 'BeVisible';
+model.vatID = 1234;
+let person = new Person(model);
 
 
 
