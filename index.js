@@ -1,4 +1,4 @@
-//const Organization = require('@josebarrios/organization');
+const Organization = require('@josebarrios/organization');
 
 class Person {
 
@@ -6,7 +6,7 @@ class Person {
     model = model || {};
     this.additionalName = model.additionalName;
     this.address = model.address;
-    //this.affiliation = new Organization(model.affiliation)
+    this.affiliation = new Organization(model.affiliation)
     this.email = model.email;
     this.familyName = model.familyName;
     this.gender = model.gender;
@@ -15,7 +15,7 @@ class Person {
     this.taxID = model.taxID;
     this.telephone = model.telephone;
     this.vatID = model.vatID;
-    //this.worksFor = new Organization(model.worksFor)
+    this.worksFor = new Organization(model.worksFor)
     this.image = model.image;
   }
 
