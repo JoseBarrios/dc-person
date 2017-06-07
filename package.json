@@ -1,7 +1,7 @@
 {
   "name": "@josebarrios/person",
   "version": "1.0.4",
-  "description": "Person class",
+  "description": "Person class that conforms to Schema.org",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha tests/"
