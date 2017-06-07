@@ -1,8 +1,8 @@
 {
-  "name": "person",
-  "version": "1.0.0",
+  "name": "@josebarrios/person",
+  "version": "1.0.1",
   "description": "Person class",
-  "main": "Person.js",
+  "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha tests/"
   },
