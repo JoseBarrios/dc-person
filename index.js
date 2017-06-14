@@ -100,7 +100,7 @@ class Person {
   // COMPUTED PROPERTIES
   //////////////////////
 
-    get fullName(){
+  get fullName(){
     let name = `${this.givenName} ${this.additionalName || '\b'} ${this.familyName}`;
     name = name.replace(/.?\x08/, "");
     return name;
@@ -111,7 +111,11 @@ class Person {
   // CLASS METHODS
   ////////////////
 
-  serialize(){ return JSON.stringify(this.model, null, '\t') }
+  serialize(){
+    let string = JSON.stringify(this.model);
+    let obj = JSON.parse(string);
+    return obj;
+  }
 }
 
 module.exports = Person;
