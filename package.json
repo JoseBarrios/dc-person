@@ -1,6 +1,6 @@
 {
   "name": "@josebarrios/person",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Person class that conforms to Schema.org",
   "main": "index.js",
   "scripts": {
