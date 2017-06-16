@@ -1,8 +1,11 @@
-class Person {
+const Thing = require('@josebarrios/thing');
+
+class Person extends Thing {
 
   constructor(model){
     model = model || {};
-    this.model = model;
+    super(model);
+
     this.additionalName = model.additionalName;
     this.address = model.address;
     this.affiliation = model.affiliation;
@@ -19,78 +22,78 @@ class Person {
   }
 
   get additionalName(){ return this.model.additionalName; }
-  set additionalName(string){
-    if(!string) return;
-    this.model.additionalName = string.charAt(0).toUpperCase() + string.slice(1);
+  set additionalName(value){
+    if(!value) return;
+    this.model.additionalName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
   get address(){ return this.model.address; }
-  set address(string){
-    if(!string) return;
-    this.model.address = string;
+  set address(value){
+    if(!value) return;
+    this.model.address = value;
   }
   get affiliation(){ return this.model.affiliation; }
-  set affiliation(string){
-    if(!string) return;
-    this.model.affiliation = string;
+  set affiliation(value){
+    if(!value) return;
+    this.model.affiliation = value;
   }
 
   get email(){ return this.model.email; }
-  set email(string){
-    if(!string) return;
-    this.model.email = string.toLowerCase();
+  set email(value){
+    if(!value) return;
+    this.model.email = value.toLowerCase();
   }
 
   get familyName(){ return this.model.familyName; }
-  set familyName(string){
-    if(!string) return;
-    this.model.familyName = string.charAt(0).toUpperCase() + string.slice(1);
+  set familyName(value){
+    if(!value) return;
+    this.model.familyName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
   get gender(){ return this.model.gender; }
-  set gender(string){
-    if(!string) return;
-    this.model.gender = string;
+  set gender(value){
+    if(!value) return;
+    this.model.gender = value;
   }
 
   get givenName(){ return this.model.givenName; }
-  set givenName(string){
-    if(!string) return;
-    this.model.givenName = string.charAt(0).toUpperCase() + string.slice(1);
+  set givenName(value){
+    if(!value) return;
+    this.model.givenName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
   get jobTitle(){ return this.model.jobTitle; }
-  set jobTitle(string){
-    if(!string) return;
-    this.model.jobTitle = string;
+  set jobTitle(value){
+    if(!value) return;
+    this.model.jobTitle = value;
   }
 
   get taxID(){ return this.model.taxID; }
-  set taxID(string){
-    if(!string) return;
-    this.model.taxID = string;
+  set taxID(value){
+    if(!value) return;
+    this.model.taxID = value;
   }
 
   get telephone(){ return this.model.telephone; }
-  set telephone(string){
-    if(!string) return;
-    this.model.telephone = string;
+  set telephone(value){
+    if(!value) return;
+    this.model.telephone = value;
   }
   get vatID(){ return this.model.vatID; }
-  set vatID(string){
-    if(!string) return;
-    this.model.vatID = string;
+  set vatID(value){
+    if(!value) return;
+    this.model.vatID = value;
   }
   get worksFor(){ return this.model.worksFor; }
-  set worksFor(string){
-    if(!string) return;
-    this.model.worksFor = string;
+  set worksFor(value){
+    if(!value) return;
+    this.model.worksFor = value;
   }
 
   get image(){ return this.model.image; }
-  set image(string){
-    if(!string) return;
-    this.model.image = string;
+  set image(value){
+    if(!value) return;
+    this.model.image = value;
   }
 
 
@@ -104,16 +107,6 @@ class Person {
     return name;
   }
 
-
-  ////////////////
-  // CLASS METHODS
-  ////////////////
-
-  serialize(){
-    let string = JSON.stringify(this.model);
-    let obj = JSON.parse(string);
-    return obj;
-  }
 }
 
 module.exports = Person;

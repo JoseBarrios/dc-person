@@ -10,6 +10,7 @@ model.email = 'jose@barrios.io';
 model.affiliation = {};
 model.affiliation.name = 'BeVisible';
 model.vatID = 1234;
+model.identifier = '12345'
 let person = new Person(model);
 
 
