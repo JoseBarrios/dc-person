@@ -11,6 +11,7 @@ class Person extends Thing {
     this.affiliation = model.affiliation;
     this.email = model.email;
     this.familyName = model.familyName;
+    this.follows = model.follows;
     this.gender = model.gender;
     this.givenName = model.givenName;
     this.jobTitle = model.jobTitle;
@@ -49,6 +50,13 @@ class Person extends Thing {
     if(!value) return;
     this.model.familyName = value.charAt(0).toUpperCase() + value.slice(1);
   }
+
+  get follows(){ return this.model.follows; }
+  set follows(value){
+    if(!value) return;
+    this.model.follows = value;
+  }
+
 
   get gender(){ return this.model.gender; }
   set gender(value){
