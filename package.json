@@ -1,6 +1,6 @@
 {
   "name": "@josebarrios/person",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "description": "Person class that conforms to Schema.org",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,6 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "@josebarrios/thing": "^0.1.1"
+    "@josebarrios/thing": "^0.1.3"
   }
 }

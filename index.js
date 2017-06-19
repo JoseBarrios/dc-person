@@ -112,11 +112,6 @@ class Person extends Thing {
     else { this.model.worksFor = value; }
   }
 
-  get image(){ return this.model.image || null; }
-  set image(value){
-    if(!value || value === EMPTY_STRING) { this.model.image = undefined; }
-    else { this.model.image = value; }
-  }
 
 
   //////////////////////
