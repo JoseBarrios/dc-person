@@ -21,6 +21,13 @@ key.givenName = 'Jose';
 key.familyName = 'Barrios';
 key.affiliationName = 'BeVisible';
 
+describe('#serialize', function() {
+	it('should return the serialized version of the model', function() {
+    let person = new Person(model);
+    let serialized = person.serialize();
+		assert.equal(person.additionalName, undefined);
+	});
+});
 
 describe('person.fullName', function() {
 	it('should return the given and family names in a single string', function() {
