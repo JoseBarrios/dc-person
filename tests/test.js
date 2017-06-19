@@ -11,6 +11,7 @@ model.affiliation = {};
 model.affiliation.name = 'BeVisible';
 model.vatID = 1234;
 model.identifier = '12345'
+model.additionalName = "";//EMPTY STRING
 let person = new Person(model);
 
 
@@ -24,7 +25,6 @@ key.affiliationName = 'BeVisible';
 describe('#serialize', function() {
 	it('should return the serialized version of the model', function() {
     let person = new Person(model);
-    person.additionalName = "";
     let serialized = person.serialize();
 		assert.equal(person.additionalName, undefined);
 	});

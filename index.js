@@ -1,4 +1,5 @@
 const Thing = require('@josebarrios/thing');
+const EMPTY_STRING = "";
 
 class Person extends Thing {
 
@@ -22,85 +23,85 @@ class Person extends Thing {
     this.image = model.image;
   }
 
-  get additionalName(){ return this.model.additionalName; }
+  get additionalName(){ return this.model.additionalName || null; }
   set additionalName(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.additionalName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
-  get address(){ return this.model.address; }
+  get address(){ return this.model.address || null; }
   set address(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.address = value;
   }
-  get affiliation(){ return this.model.affiliation; }
+  get affiliation(){ return this.model.affiliation || null; }
   set affiliation(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.affiliation = value;
   }
 
-  get email(){ return this.model.email; }
+  get email(){ return this.model.email || null; }
   set email(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.email = value.toLowerCase();
   }
 
-  get familyName(){ return this.model.familyName; }
+  get familyName(){ return this.model.familyName || null; }
   set familyName(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.familyName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
-  get follows(){ return this.model.follows; }
+  get follows(){ return this.model.follows || null; }
   set follows(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.follows = value;
   }
 
 
-  get gender(){ return this.model.gender; }
+  get gender(){ return this.model.gender || null; }
   set gender(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.gender = value;
   }
 
-  get givenName(){ return this.model.givenName; }
+  get givenName(){ return this.model.givenName || null; }
   set givenName(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.givenName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
-  get jobTitle(){ return this.model.jobTitle; }
+  get jobTitle(){ return this.model.jobTitle || null; }
   set jobTitle(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.jobTitle = value;
   }
 
-  get taxID(){ return this.model.taxID; }
+  get taxID(){ return this.model.taxID || null; }
   set taxID(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.taxID = value;
   }
 
-  get telephone(){ return this.model.telephone; }
+  get telephone(){ return this.model.telephone || null; }
   set telephone(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.telephone = value;
   }
-  get vatID(){ return this.model.vatID; }
+  get vatID(){ return this.model.vatID || null; }
   set vatID(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.vatID = value;
   }
-  get worksFor(){ return this.model.worksFor; }
+  get worksFor(){ return this.model.worksFor || null; }
   set worksFor(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.worksFor = value;
   }
 
-  get image(){ return this.model.image; }
+  get image(){ return this.model.image || null; }
   set image(value){
-    if(!value || value === "") return;
+    if(!value || value === EMPTY_STRING) return;
     this.model.image = value;
   }
 
