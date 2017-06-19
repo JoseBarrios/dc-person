@@ -7,10 +7,9 @@ var model = {};
 model.givenName = 'jose';
 model.familyName = 'barrios';
 model.email = 'jose@barrios.io';
-model.affiliation = {};
-model.affiliation.name = 'BeVisible';
+model.affiliation = null;
 model.vatID = 1234;
-model.identifier = '12345'
+model.identifier = undefined;
 model.additionalName = "";//EMPTY STRING
 model.gender = '';//EMPTY STRING
 let person = new Person(model);
@@ -43,11 +42,5 @@ describe('person.givenName', function() {
 describe('person.familyName', function() {
 	it('should capitalize family name', function() {
 		assert.equal(person.familyName, key.familyName);
-	});
-});
-
-describe('person.affiliation.name', function() {
-	it('should return the name of the organization the person is affiliated to', function() {
-		assert.equal(person.affiliation.name, key.affiliationName);
 	});
 });
