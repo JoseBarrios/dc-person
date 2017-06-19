@@ -24,6 +24,7 @@ key.affiliationName = 'BeVisible';
 describe('#serialize', function() {
 	it('should return the serialized version of the model', function() {
     let person = new Person(model);
+    person.additionalName = "";
     let serialized = person.serialize();
 		assert.equal(person.additionalName, undefined);
 	});

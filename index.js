@@ -24,83 +24,83 @@ class Person extends Thing {
 
   get additionalName(){ return this.model.additionalName; }
   set additionalName(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.additionalName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
   get address(){ return this.model.address; }
   set address(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.address = value;
   }
   get affiliation(){ return this.model.affiliation; }
   set affiliation(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.affiliation = value;
   }
 
   get email(){ return this.model.email; }
   set email(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.email = value.toLowerCase();
   }
 
   get familyName(){ return this.model.familyName; }
   set familyName(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.familyName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
   get follows(){ return this.model.follows; }
   set follows(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.follows = value;
   }
 
 
   get gender(){ return this.model.gender; }
   set gender(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.gender = value;
   }
 
   get givenName(){ return this.model.givenName; }
   set givenName(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.givenName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
   get jobTitle(){ return this.model.jobTitle; }
   set jobTitle(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.jobTitle = value;
   }
 
   get taxID(){ return this.model.taxID; }
   set taxID(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.taxID = value;
   }
 
   get telephone(){ return this.model.telephone; }
   set telephone(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.telephone = value;
   }
   get vatID(){ return this.model.vatID; }
   set vatID(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.vatID = value;
   }
   get worksFor(){ return this.model.worksFor; }
   set worksFor(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.worksFor = value;
   }
 
   get image(){ return this.model.image; }
   set image(value){
-    if(!value) return;
+    if(!value || value === "") return;
     this.model.image = value;
   }
 
