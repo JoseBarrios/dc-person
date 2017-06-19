@@ -26,6 +26,8 @@ describe('#serialize', function() {
 	it('should return the serialized version of the model', function() {
     let person = new Person(model);
     let serialized = person.serialize();
+    console.log(serialized)
+    console.log(person.serialize())
 		assert.equal(person.additionalName, undefined);
 	});
 });

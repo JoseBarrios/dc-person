@@ -23,10 +23,14 @@ class Person extends Thing {
     this.image = model.image;
   }
 
-  get additionalName(){ return this.model.additionalName || null; }
+  get additionalName(){ return this.model.additionalName; }
   set additionalName(value){
-    if(!value || value === EMPTY_STRING) return;
-    this.model.additionalName = value.charAt(0).toUpperCase() + value.slice(1);
+    if(!value || value === EMPTY_STRING){
+      this.model.additionalName = undefined;
+    } else {
+      let lowerCase = value.toLowerCase();
+      this.model.additionalName = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
+    }
   }
 
   get address(){ return this.model.address || null; }
@@ -49,7 +53,8 @@ class Person extends Thing {
   get familyName(){ return this.model.familyName || null; }
   set familyName(value){
     if(!value || value === EMPTY_STRING) return;
-    this.model.familyName = value.charAt(0).toUpperCase() + value.slice(1);
+    let lowerCase = value.toLowerCase();
+    this.model.familyName = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
   }
 
   get follows(){ return this.model.follows || null; }
@@ -68,7 +73,8 @@ class Person extends Thing {
   get givenName(){ return this.model.givenName || null; }
   set givenName(value){
     if(!value || value === EMPTY_STRING) return;
-    this.model.givenName = value.charAt(0).toUpperCase() + value.slice(1);
+    let lowerCase = value.toLowerCase();
+    this.model.givenName = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
   }
 
   get jobTitle(){ return this.model.jobTitle || null; }
