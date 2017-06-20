@@ -1,7 +1,8 @@
 const Thing = require('@josebarrios/thing');
-const EMPTY_STRING = "";
 
 class Person extends Thing {
+
+  //Inherets this.model, and this.emptyProperties
 
   constructor(model){
     model = model || {};
@@ -25,93 +26,70 @@ class Person extends Thing {
 
   get additionalName(){ return this.model.additionalName; }
   set additionalName(value){
-    if(!value || value === EMPTY_STRING){
-      this.model.additionalName = undefined;
-    } else {
-      let lowerCase = value.toLowerCase();
-      this.model.additionalName = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
-    }
+    this.model.additionalName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
-  get address(){ return this.model.address || null; }
+  get address(){ return this.model.address; }
   set address(value){
-    if(!value || value === EMPTY_STRING) { this.model.address = undefined; }
-    else { this.model.address = value; }
+    this.model.address = value;
   }
-
-  get affiliation(){ return this.model.affiliation || null; }
+  get affiliation(){ return this.model.affiliation; }
   set affiliation(value){
-    if(!value || value === EMPTY_STRING){ this.model.affiliation = undefined }
-    else { this.model.affiliation = value; }
+    this.model.affiliation = value;
   }
 
-  get email(){ return this.model.email || null; }
+  get email(){ return this.model.email; }
   set email(value){
-    if(!value || value === EMPTY_STRING) { this.model.email = undefined; }
-    else { this.model.email = value.toLowerCase(); }
+    this.model.email = value.toLowerCase();
   }
 
-  get familyName(){ return this.model.familyName || null; }
+  get familyName(){ return this.model.familyName; }
   set familyName(value){
-    if(!value || value === EMPTY_STRING) { this.model.familyName = undefined; }
-    else{
-      let lowerCase = value.toLowerCase();
-      this.model.familyName = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
-    }
+    this.model.familyName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
-  get follows(){ return this.model.follows || null; }
+  get follows(){ return this.model.follows; }
   set follows(value){
-    if(!value || value === EMPTY_STRING) { this.model.follows = undefined; }
-    else { this.model.follows = value; }
+    this.model.follows = value;
   }
 
-
-  get gender(){ return this.model.gender || null; }
+  get gender(){ return this.model.gender; }
   set gender(value){
-    if(!value || value === EMPTY_STRING) { this.model.gender = undefined; }
-    else { this.model.gender = value; }
+    this.model.gender = value;
   }
 
-  get givenName(){ return this.model.givenName || null; }
+  get givenName(){ return this.model.givenName; }
   set givenName(value){
-    if(!value || value === EMPTY_STRING) { this.model.givenName = undefined; }
-    else {
-      let lowerCase = value.toLowerCase();
-      this.model.givenName = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
-    }
+    this.model.givenName = value.charAt(0).toUpperCase() + value.slice(1);
   }
 
-  get jobTitle(){ return this.model.jobTitle || null; }
+  get jobTitle(){ return this.model.jobTitle; }
   set jobTitle(value){
-    if(!value || value === EMPTY_STRING) { this.model.jobTitle = undefined; }
-    else { this.model.jobTitle = value; }
+    this.model.jobTitle = value;
   }
 
-  get taxID(){ return this.model.taxID || null; }
+  get taxID(){ return this.model.taxID; }
   set taxID(value){
-    if(!value || value === EMPTY_STRING) { this.model.taxID = undefined; }
-    else { this.model.taxID = value; }
+    this.model.taxID = value;
   }
 
-  get telephone(){ return this.model.telephone || null; }
+  get telephone(){ return this.model.telephone; }
   set telephone(value){
-    if(!value || value === EMPTY_STRING) { this.model.telephone = undefined; }
-    else { this.model.telephone = value; }
+    this.model.telephone = value;
   }
-
-  get vatID(){ return this.model.vatID || null; }
+  get vatID(){ return this.model.vatID; }
   set vatID(value){
-    if(!value || value === EMPTY_STRING) { this.model.vatID = undefined; }
-    else { this.model.vatID = value; }
+    this.model.vatID = value;
   }
-
-  get worksFor(){ return this.model.worksFor || null; }
+  get worksFor(){ return this.model.worksFor; }
   set worksFor(value){
-    if(!value || value === EMPTY_STRING) { this.model.worksFor = undefined; }
-    else { this.model.worksFor = value; }
+    this.model.worksFor = value;
   }
 
+  get image(){ return this.model.image; }
+  set image(value){
+    this.model.image = value;
+  }
 
 
   //////////////////////

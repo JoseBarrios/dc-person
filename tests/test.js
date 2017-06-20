@@ -23,7 +23,15 @@ key.affiliationName = 'BeVisible';
 
 describe('#serialize', function() {
 	it('should return the serialized version of the model', function() {
-		assert.equal(person.serialize().additionalName, undefined);
+		assert.equal(person.model.givenName, 'Jose');
+		assert.equal(person.model.additionalName, '');
+	});
+});
+
+describe('#getEmptyProperties', function() {
+	it('should return a new object with all the empty properties of the person model', function() {
+		assert.equal(person.emptyProperties.additionalName, '');
+		assert.equal(person.emptyProperties.gender, '');
 	});
 });
 

@@ -24,6 +24,6 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "@josebarrios/thing": "^0.1.7"
+    "@josebarrios/thing": "^0.2.1"
   }
 }
