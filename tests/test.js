@@ -33,8 +33,8 @@ describe('#serialize', function() {
 
 describe('#getEmptyProperties', function() {
 	it('should return a new object with all the empty properties of the person model', function() {
-    person.additionalName = undefined;
-    assert.equal(person.emptyProperties.additionalName, '');
+    person.additionalName = '';
+    assert.equal(Person.unsetProperties(person).additionalName, '');
 	});
 });
 
