@@ -1,4 +1,5 @@
 const Thing = require('@josebarrios/thing');
+const EMPTY = '';
 
 class Person extends Thing {
 
@@ -11,86 +12,477 @@ class Person extends Thing {
     this.additionalName = model.additionalName;
     this.address = model.address;
     this.affiliation = model.affiliation;
+    this.alumniOf = model.alumniOf;
+    this.award = model.award;
+    this.birthDay = model.birthDay;
+    this.birthPlace = model.birthPlace;
+    this.brand = model.brand;
+    this.children = model.children;
+    this.colleague = model.colleague;
+    this.contactPoint = model.contactPoint;
+    this.deathDate = model.deathDate;
+    this.deathPlace = model.deathPlace;
+    this.duns = model.duns;
     this.email = model.email;
     this.familyName = model.familyName;
+    this.faxNumber = model.faxNumber;
     this.follows = model.follows;
+    this.founder = model.funder;
     this.gender = model.gender;
     this.givenName = model.givenName;
+    this.globalLocationNumber = model.globalLocationNumber;
+    this.hasOfferCatalog = model.hasOfferCatalog;
+    this.hasPOS = model.hasPOS;
+    this.height = model.height;
+    this.homeLocation = model.homeLocation;
+    this.honorificPrefix = model.honorificPrefix;
+    this.honorificSuffix = model.honorificSuffix;
+    this.isicV4 = model.isicV4;
     this.jobTitle = model.jobTitle;
+    this.knows = model.knows;
+    this.makesOffer = model.makesOffer;
+    this.memberOf = model.memberOf;
+    this.naics = model.naics;
+    this.nationality = model.nationality;
+    this.netWorth = model.netWorth;
+    this.owns = model.owns;
+    this.parent = model.parent;
+    this.performerIn = model.performerIn;
+    this.relatedTo = model.relatedTo;
+    this.seeks = model.seeks;
+    this.sibling = model.sibling;
+    this.sponsor = model.sponsor;
+    this.spouse = model.spouse;
     this.taxID = model.taxID;
     this.telephone = model.telephone;
     this.vatID = model.vatID;
+    this.weight = model.weight;
+    this.workLocation = model.workLocation;
     this.worksFor = model.worksFor;
-    this.image = model.image;
+
   }
 
-  get additionalName(){ return this.model.additionalName; }
+  get additionalName(){ return this.computed.additionalName; }
   set additionalName(value){
-    this.model.additionalName = value.charAt(0).toUpperCase() + value.slice(1);
+    if(Thing.isEmpty(value)){ this.computed.additionalName = EMPTY}
+    else if(Thing.isString(value)){ this.computed.additionalName = this.lodash.capitalize(value); }
+    else { Thing.logError(this.constructor.name+': additionalName must be a string', 'type') }
   }
 
-  get address(){ return this.model.address; }
+  get address(){ return this.computed.address; }
   set address(value){
-    this.model.address = value;
+    if(Thing.isEmpty(value)){ this.computed.address = EMPTY}
+    else if(Thing.isString(value)){ this.computed.address = value }
+    else { Thing.logError(this.constructor.name+': address must be a string or object', 'type') }
   }
-  get affiliation(){ return this.model.affiliation; }
+
+  get affiliation(){ return this.computed.affiliation; }
   set affiliation(value){
-    this.model.affiliation = value;
+    if(Thing.isEmpty(value)){ this.computed.affiliation = EMPTY}
+    else if(Thing.isString(value)){ this.computed.affiliation = value }
+    else if(Thing.isObject(value)){ this.computed.affiliation = value }
+    else if(Thing.isArray(value)){ this.computed.affiliation = value }
+    else { Thing.logError(this.constructor.name+': affiliation must be a string, object or array', 'type') }
   }
 
-  get email(){ return this.model.email; }
+  get alumniOf(){ return this.computed.alumniOf; }
+  set alumniOf(value){
+    if(Thing.isEmpty(value)){ this.computed.alumniOf = EMPTY}
+    else if(Thing.isString(value)){ this.computed.alumniOf = value }
+    else if(Thing.isObject(value)){ this.computed.alumniOf = value }
+    else if(Thing.isArray(value)){ this.computed.alumniOf = value }
+    else { Thing.logError(this.constructor.name+': alumniOf must be a string, object, or array', 'type') }
+  }
+
+  get award(){ return this.computed.award; }
+  set award(value){
+    if(Thing.isEmpty(value)){ this.computed.award = EMPTY}
+    else if(Thing.isString(value)){ this.computed.award = value }
+    else { Thing.logError(this.constructor.name+': award must be a string', 'type') }
+  }
+
+  get birthDay(){ return this.computed.birthDay; }
+  set birthDay(value){
+    if(Thing.isEmpty(value)){ this.computed.birthDay = EMPTY}
+    else if(Thing.isObject(value)){ this.computed.birthDay = value }
+    else if(Thing.isNumber(value)){ this.computed.birthDay = value }
+    else { Thing.logError(this.constructor.name+': birthDay must be an object, or number (timestamp)', 'type') }
+  }
+
+  get birthPlace(){ return this.computed.birthPlace; }
+  set birthPlace(value){
+    if(Thing.isEmpty(value)){ this.computed.birthPlace = EMPTY}
+    else if(Thing.isString(value)){ this.computed.birthPlace = value }
+    else if(Thing.isObject(value)){ this.computed.birthPlace = value }
+    else { Thing.logError(this.constructor.name+': birthPlace must be a string, or object', 'type') }
+  }
+
+  get brand(){ return this.computed.brand; }
+  set brand(value){
+    if(Thing.isEmpty(value)){ this.computed.brand = EMPTY}
+    else if(Thing.isString(value)){ this.computed.brand = value }
+    else if(Thing.isObject(value)){ this.computed.brand = value }
+    else { Thing.logError(this.constructor.name+': brand must be a string or object', 'type') }
+  }
+
+  get children(){ return this.computed.children; }
+  set children(value){
+    if(Thing.isEmpty(value)){ this.computed.children = EMPTY}
+    else if(Thing.isString(value)){ this.computed.children = value }
+    else if(Thing.isObject(value)){ this.computed.children = value }
+    else if(Thing.isArray(value)){ this.computed.children = value }
+    else { Thing.logError(this.constructor.name+': children must be a string, object, or array', 'type') }
+  }
+
+  get colleague(){ return this.computed.colleague; }
+  set colleague(value){
+    if(Thing.isEmpty(value)){ this.computed.colleague = EMPTY}
+    else if(Thing.isString(value)){ this.computed.colleague = value }
+    else if(Thing.isObject(value)){ this.computed.colleague = value }
+    else if(Thing.isArray(value)){ this.computed.colleague = value }
+    else { Thing.logError(this.constructor.name+': colleague must be a string, object, or array', 'type') }
+  }
+
+  get contactPoint(){ return this.computed.contactPoint; }
+  set contactPoint(value){
+    if(Thing.isEmpty(value)){ this.computed.contactPoint = EMPTY}
+    else if(Thing.isString(value)){ this.computed.contactPoint = value }
+    else if(Thing.isObject(value)){ this.computed.contactPoint = value }
+    else { Thing.logError(this.constructor.name+': contactPoint must be a string or object', 'type') }
+  }
+
+  get deathDate(){ return this.computed.deathDate; }
+  set deathDate(value){
+    if(Thing.isEmpty(value)){ this.computed.deathDate = EMPTY}
+    else if(Thing.isObject(value)){ this.computed.deathDate = value }
+    else if(Thing.isNumber(value)){ this.computed.deathDate = value }
+    else { Thing.logError(this.constructor.name+': deathDate must be a number of object', 'type') }
+  }
+
+  get deathPlace(){ return this.computed.deathPlace; }
+  set deathPlace(value){
+    if(Thing.isEmpty(value)){ this.computed.deathPlace = EMPTY}
+    else if(Thing.isString(value)){ this.computed.deathPlace = value }
+    else if(Thing.isObject(value)){ this.computed.deathPlace = value }
+    else { Thing.logError(this.constructor.name+': deathPlace must be a string or object', 'type') }
+  }
+
+  get duns(){ return this.computed.duns; }
+  set duns(value){
+    if(Thing.isEmpty(value)){ this.computed.duns = EMPTY}
+    else if(Thing.isString(value)){ this.computed.duns = value }
+    else { Thing.logError(this.constructor.name+': duns must be a string', 'type') }
+  }
+
+  get email(){ return this.computed.email; }
   set email(value){
-    this.model.email = value.toLowerCase();
+    if(Thing.isEmpty(value)){ this.computed.email = EMPTY}
+    else if(Thing.isString(value)){
+      let email = this.lodash.toLower(value);
+      email = this.lodash.trim(email);
+      this.computed.email = email;
+    } else { Thing.logError(this.constructor.name+': email must be a string, object, or array', 'type') }
   }
 
-  get familyName(){ return this.model.familyName; }
+  get familyName(){ return this.computed.familyName; }
   set familyName(value){
-    this.model.familyName = value.charAt(0).toUpperCase() + value.slice(1);
+    if(Thing.isEmpty(value)){ this.computed.familyName = EMPTY}
+    else if(Thing.isString(value)){
+      this.computed.familyName = this.lodash.capitalize(value);
+    } else { Thing.logError(this.constructor.name+': familyName must be a string', 'type') }
   }
 
-  get follows(){ return this.model.follows; }
+  get faxNumber(){ return this.computed.faxNumber; }
+  set faxNumber(value){
+    if(Thing.isEmpty(value)){ this.computed.faxNumber = EMPTY}
+    else if(Thing.isNumber(value)){ this.computed.faxNumber = value }
+    else { Thing.logError(this.constructor.name+': faxNumber must be a number', 'type') }
+  }
+
+  get follows(){ return this.computed.follows; }
   set follows(value){
-    this.model.follows = value;
+    if(Thing.isEmpty(value)){ this.computed.follows = EMPTY}
+    else if(Thing.isString(value)){ this.computed.follows = value }
+    else if(Thing.isObject(value)){ this.computed.follows = value }
+    else if(Thing.isArray(value)){ this.computed.follows = value }
+    else { Thing.logError(this.constructor.name+': follows must be a string, object, or array', 'type') }
   }
 
-  get gender(){ return this.model.gender; }
+  get founder(){ return this.computed.founder; }
+  set founder(value){
+    if(Thing.isEmpty(value)){ this.computed.founder = EMPTY}
+    else if(Thing.isString(value)){ this.computed.founder = value }
+    else if(Thing.isObject(value)){ this.computed.founder = value }
+    else if(Thing.isArray(value)){ this.computed.founder = value }
+    else { Thing.logError(this.constructor.name+': founder must be a string, object, or array', 'type') }
+  }
+
+
+  get gender(){ return this.computed.gender; }
   set gender(value){
-    this.model.gender = value;
+    if(Thing.isEmpty(value)){ this.computed.gender = EMPTY}
+    else if(Thing.isString(value)){ this.computed.gender = value }
+    else if(Thing.isObject(value)){ this.computed.gender = value }
+    else { Thing.logError(this.constructor.name+': gender must be a string or object', 'type') }
   }
 
-  get givenName(){ return this.model.givenName; }
+  get givenName(){ return this.computed.givenName; }
   set givenName(value){
-    this.model.givenName = value.charAt(0).toUpperCase() + value.slice(1);
+    if(Thing.isEmpty(value)){ this.computed.givenName = EMPTY}
+    else if(Thing.isString(value)){
+      this.computed.givenName = this.lodash.capitalize(value);
+    } else { Thing.logError(this.constructor.name+': givenName must be a string', 'type') }
   }
 
-  get jobTitle(){ return this.model.jobTitle; }
+  get globalLocationNumber(){ return this.computed.globalLocationNumber; }
+  set globalLocationNumber(value){
+    if(Thing.isEmpty(value)){ this.computed.globalLocationNumber = EMPTY}
+    else if(Thing.isString(value)){ this.computed.globalLocationNumber = value }
+    else if(Thing.isNumber(value)){ this.computed.globalLocationNumber = value }
+    else { Thing.logError(this.constructor.name+': globalLocationNumber must be a string or number', 'type') }
+  }
+
+  get hasOfferCatalog(){ return this.computed.hasOfferCatalog; }
+  set hasOfferCatalog(value){
+    if(Thing.isEmpty(value)){ this.computed.hasOfferCatalog = EMPTY}
+    else if(Thing.isString(value)){ this.computed.hasOfferCatalog = value }
+    else if(Thing.isObject(value)){ this.computed.hasOfferCatalog = value }
+    else if(Thing.isArray(value)){ this.computed.hasOfferCatalog = value }
+    else { Thing.logError(this.constructor.name+': hasOfferCatalog must be a string, object, or array', 'type') }
+  }
+
+  get hasPOS(){ return this.computed.hasPOS; }
+  set hasPOS(value){
+    if(Thing.isEmpty(value)){ this.computed.hasPOS = EMPTY}
+    else if(Thing.isString(value)){ this.computed.hasPOS = value }
+    else if(Thing.isObject(value)){ this.computed.hasPOS = value }
+    else if(Thing.isArray(value)){ this.computed.hasPOS = value }
+    else { Thing.logError(this.constructor.name+': hasPOS must be a string, object, or array', 'type') }
+  }
+
+  get height(){ return this.computed.height; }
+  set height(value){
+    if(Thing.isEmpty(value)){ this.computed.height = EMPTY}
+    else if(Thing.isString(value)){ this.computed.height = value }
+    else if(Thing.isObject(value)){ this.computed.height = value }
+    else if(Thing.isNumber(value)){ this.computed.height = value }
+    else { Thing.logError(this.constructor.name+': height must be a string, object, or number', 'type') }
+  }
+
+  get homeLocation(){ return this.computed.homeLocation; }
+  set homeLocation(value){
+    if(Thing.isEmpty(value)){ this.computed.homeLocation = EMPTY}
+    else if(Thing.isString(value)){ this.computed.homeLocation = value }
+    else if(Thing.isObject(value)){ this.computed.homeLocation = value }
+    else { Thing.logError(this.constructor.name+': homeLocation must be a string or object', 'type') }
+  }
+
+  get honorificPrefix(){ return this.computed.honorificPrefix; }
+  set honorificPrefix(value){
+    if(Thing.isEmpty(value)){ this.computed.honorificPrefix = EMPTY}
+    else if(Thing.isString(value)){ this.computed.honorificPrefix = value }
+    else { Thing.logError(this.constructor.name+': honorificPrefix must be a string', 'type') }
+  }
+
+  get honorificSuffix(){ return this.computed.honorificSuffix; }
+  set honorificSuffix(value){
+    if(Thing.isEmpty(value)){ this.computed.honorificSuffix = EMPTY}
+    else if(Thing.isString(value)){ this.computed.honorificSuffix = value }
+    else { Thing.logError(this.constructor.name+': honorificSuffix must be a string', 'type') }
+  }
+
+  get isicV4(){ return this.computed.isicV4; }
+  set isicV4(value){
+    if(Thing.isEmpty(value)){ this.computed.isicV4 = EMPTY}
+    else if(Thing.isString(value)){ this.computed.isicV4 = value }
+    else { Thing.logError(this.constructor.name+': isicV4 must be a string', 'type') }
+  }
+
+  get jobTitle(){ return this.computed.jobTitle; }
   set jobTitle(value){
-    this.model.jobTitle = value;
+    if(Thing.isEmpty(value)){ this.computed.jobTitle = EMPTY}
+    else if(Thing.isString(value)){ this.computed.jobTitle = value }
+    else { Thing.logError(this.constructor.name+': jobTitle must be a string', 'type') }
   }
 
-  get taxID(){ return this.model.taxID; }
+  get knows(){ return this.computed.knows; }
+  set knows(value){
+    if(Thing.isEmpty(value)){ this.computed.knows = EMPTY}
+    else if(Thing.isString(value)){ this.computed.knows = value }
+    else if(Thing.isObject(value)){ this.computed.knows = value }
+    else if(Thing.isArray(value)){ this.computed.knows = value }
+    else { Thing.logError(this.constructor.name+': knows must be a string, object, or array', 'type') }
+  }
+
+  get makesOffer(){ return this.computed.makesOffer; }
+  set makesOffer(value){
+    if(Thing.isEmpty(value)){ this.computed.makesOffer = EMPTY}
+    else if(Thing.isString(value)){ this.computed.makesOffer = value }
+    else if(Thing.isObject(value)){ this.computed.makesOffer = value }
+    else if(Thing.isArray(value)){ this.computed.makesOffer = value }
+    else { Thing.logError(this.constructor.name+': makesOffer must be a string, object, or array', 'type') }
+  }
+
+  get memberOf(){ return this.computed.memberOf; }
+  set memberOf(value){
+    if(Thing.isEmpty(value)){ this.computed.memberOf = EMPTY}
+    else if(Thing.isString(value)){ this.computed.memberOf = value }
+    else if(Thing.isObject(value)){ this.computed.memberOf = value }
+    else if(Thing.isArray(value)){ this.computed.memberOf = value }
+    else { Thing.logError(this.constructor.name+': memberOf must be a string, object, or array', 'type') }
+  }
+
+  get naics(){ return this.computed.naics; }
+  set naics(value){
+    if(Thing.isEmpty(value)){ this.computed.naics = EMPTY}
+    else if(Thing.isString(value)){ this.computed.naics = value }
+    else { Thing.logError(this.constructor.name+': naics must be a string', 'type') }
+  }
+
+  get nationality(){ return this.computed.nationality; }
+  set nationality(value){
+    if(Thing.isEmpty(value)){ this.computed.nationality = EMPTY}
+    else if(Thing.isString(value)){ this.computed.nationality = value }
+    else if(Thing.isObject(value)){ this.computed.nationality = value }
+    else if(Thing.isArray(value)){ this.computed.nationality = value }
+    else { Thing.logError(this.constructor.name+': nationality must be a string, object, or array', 'type') }
+  }
+
+  get netWorth(){ return this.computed.netWorth; }
+  set netWorth(value){
+    if(Thing.isEmpty(value)){ this.computed.netWorth = EMPTY}
+    else if(Thing.isString(value)){ this.computed.netWorth = value }
+    else if(Thing.isObject(value)){ this.computed.netWorth = value }
+    else if(Thing.isNumber(value)){ this.computed.netWorth = value }
+    else { Thing.logError(this.constructor.name+': netWorth must be a string, object, or number', 'type') }
+  }
+
+  get owns(){ return this.computed.owns; }
+  set owns(value){
+    if(Thing.isEmpty(value)){ this.computed.owns = EMPTY}
+    else if(Thing.isString(value)){ this.computed.owns = value }
+    else if(Thing.isObject(value)){ this.computed.owns = value }
+    else if(Thing.isArray(value)){ this.computed.owns = value }
+    else { Thing.logError(this.constructor.name+': owns must be a string, object, or array', 'type') }
+  }
+
+  get parent(){ return this.computed.parent; }
+  set parent(value){
+    if(Thing.isEmpty(value)){ this.computed.parent = EMPTY}
+    else if(Thing.isString(value)){ this.computed.parent = value }
+    else if(Thing.isObject(value)){ this.computed.parent = value }
+    else if(Thing.isArray(value)){ this.computed.parent = value }
+    else { Thing.logError(this.constructor.name+': parent must be a string, object, or array', 'type') }
+  }
+
+  get performerIn(){ return this.computed.performerIn; }
+  set performerIn(value){
+    if(Thing.isEmpty(value)){ this.computed.performerIn = EMPTY}
+    else if(Thing.isString(value)){ this.computed.performerIn = value }
+    else if(Thing.isObject(value)){ this.computed.performerIn = value }
+    else if(Thing.isArray(value)){ this.computed.performerIn = value }
+    else { Thing.logError(this.constructor.name+': performerIn must be a string, object, or array', 'type') }
+  }
+
+  get relatedTo(){ return this.computed.relatedTo; }
+  set relatedTo(value){
+    if(Thing.isEmpty(value)){ this.computed.relatedTo = EMPTY}
+    else if(Thing.isString(value)){ this.computed.relatedTo = value }
+    else if(Thing.isObject(value)){ this.computed.relatedTo = value }
+    else if(Thing.isArray(value)){ this.computed.relatedTo = value }
+    else { Thing.logError(this.constructor.name+': relatedTo must be a string, object, or array') }
+  }
+
+  get seeks(){ return this.computed.seek; }
+  set seeks(value){
+    if(Thing.isEmpty(value)){ this.computed.seeks = EMPTY}
+    else if(Thing.isString(value)){ this.computed.seeks = value }
+    else if(Thing.isObject(value)){ this.computed.seeks = value }
+    else if(Thing.isArray(value)){ this.computed.seeks = value }
+    else { Thing.logError(this.constructor.name+': seeks must be a string, object, or array', 'type') }
+  }
+
+  get sibling(){ return this.computed.sibling; }
+  set sibling(value){
+    if(Thing.isEmpty(value)){ this.computed.sibling = EMPTY}
+    else if(Thing.isString(value)){ this.computed.sibling = value }
+    else if(Thing.isObject(value)){ this.computed.sibling = value }
+    else if(Thing.isArray(value)){ this.computed.sibling = value }
+    else { Thing.logError(this.constructor.name+': sibling must be a string, object, or array', 'type') }
+  }
+
+  get sponsor(){ return this.computed.sponsor; }
+  set sponsor(value){
+    if(Thing.isEmpty(value)){ this.computed.sponsor = EMPTY}
+    else if(Thing.isString(value)){ this.computed.sponsor = value }
+    else if(Thing.isObject(value)){ this.computed.sponsor = value }
+    else if(Thing.isArray(value)){ this.computed.sponsor = value }
+    else { Thing.logError(this.constructor.name+': sponsor must be a string, object, or array', 'type') }
+  }
+
+  get spouse(){ return this.computed.spouse; }
+  set spouse(value){
+    if(Thing.isEmpty(value)){ this.computed.spouse = EMPTY}
+    else if(Thing.isString(value)){ this.computed.spouse = value }
+    else if(Thing.isObject(value)){ this.computed.spouse = value }
+    else if(Thing.isArray(value)){ this.computed.spouse = value }
+    else { Thing.logError(this.constructor.name+': spouse must be a string, object, or array', 'type') }
+  }
+
+  get taxID(){ return this.computed.taxID; }
   set taxID(value){
-    this.model.taxID = value;
+    if(Thing.isEmpty(value)){ this.computed.taxID = EMPTY}
+    else if(Thing.isString(value)){ this.computed.taxID = value }
+    else if(Thing.isObject(value)){ this.computed.taxID = value }
+    else if(Thing.isArray(value)){ this.computed.taxID = value }
+    else { Thing.logError(this.constructor.name+': taxID must be a string, object, or array', 'type') }
   }
 
-  get telephone(){ return this.model.telephone; }
+  get telephone(){ return this.computed.telephone; }
   set telephone(value){
-    this.model.telephone = value;
+    if(Thing.isEmpty(value)){ this.computed.telephone = EMPTY}
+    else if(Thing.isString(value)){ this.computed.telephone = value }
+    else if(Thing.isNumber(value)){ this.computed.telephone = value }
+    else if(Thing.isObject(value)){ this.computed.telephone = value }
+    else if(Thing.isArray(value)){ this.computed.telephone = value }
+    else { Thing.logError(this.constructor.name+': telephone must be a string, object, number or array', 'type') }
   }
-  get vatID(){ return this.model.vatID; }
+
+  get vatID(){ return this.computed.vatID; }
   set vatID(value){
-    this.model.vatID = value;
+    if(Thing.isEmpty(value)){ this.computed.vatID = EMPTY}
+    else if(Thing.isString(value)){ this.computed.vatID = value }
+    else if(Thing.isObject(value)){ this.computed.vatID = value }
+    else if(Thing.isArray(value)){ this.computed.vatID = value }
+    else { Thing.logError(this.constructor.name+': vatID must be a string, object, or array', 'type') }
   }
-  get worksFor(){ return this.model.worksFor; }
+
+  get weight(){ return this.computed.weight; }
+  set weight(value){
+    if(Thing.isEmpty(value)){ this.computed.weight = EMPTY}
+    else if(Thing.isString(value)){ this.computed.weight = value }
+    else if(Thing.isObject(value)){ this.computed.weight = value }
+    else if(Thing.isNumber(value)){ this.computed.weight = value }
+    else { Thing.logError(this.constructor.name+': weight must be a string, object, or number', 'type') }
+  }
+
+  get workLocation(){ return this.computed.workLocation; }
+  set workLocation(value){
+    if(Thing.isEmpty(value)){ this.computed.workLocation = EMPTY}
+    else if(Thing.isString(value)){ this.computed.workLocation = value }
+    else if(Thing.isObject(value)){ this.computed.workLocation = value }
+    else if(Thing.isArray(value)){ this.computed.workLocation = value }
+    else { Thing.logError(this.constructor.name+': workLocation must be a string, object, or array', 'type') }
+  }
+
+  get worksFor(){ return this.computed.worksFor; }
   set worksFor(value){
-    this.model.worksFor = value;
+    if(Thing.isEmpty(value)){ this.computed.worksFor = EMPTY}
+    else if(Thing.isString(value)){ this.computed.worksFor = value }
+    else if(Thing.isObject(value)){ this.computed.worksFor = value }
+    else if(Thing.isArray(value)){ this.computed.worksFor = value }
+    else { Thing.logError(this.constructor.name+': worksFor must be a string, object, or array', 'type') }
   }
-
-  get image(){ return this.model.image; }
-  set image(value){
-    this.model.image = value;
-  }
-
 
   //////////////////////
   // COMPUTED PROPERTIES

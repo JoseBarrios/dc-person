@@ -4,6 +4,9 @@ var assert = require('assert');
 var Person = require('../index.js');
 
 var model = {};
+model.additionalName = 'luis';
+model.address = '759 Yates st. Victoria, BC. Canada'
+model.affiliation = 'Cognilab'
 model.givenName = 'jose';
 model.familyName = 'barrios';
 model.email = 'jose@barrios.io';
@@ -23,15 +26,15 @@ key.affiliationName = 'BeVisible';
 
 describe('#serialize', function() {
 	it('should return the serialized version of the model', function() {
-		assert.equal(person.model.givenName, 'Jose');
-		assert.equal(person.model.additionalName, '');
+		assert.equal(person.givenName, 'Jose');
+    assert.equal(person.additionalName, '');
 	});
 });
 
 describe('#getEmptyProperties', function() {
 	it('should return a new object with all the empty properties of the person model', function() {
-		assert.equal(person.emptyProperties.additionalName, '');
-		assert.equal(person.emptyProperties.gender, '');
+    person.additionalName = undefined;
+    assert.equal(person.emptyProperties.additionalName, '');
 	});
 });
 
