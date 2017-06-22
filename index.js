@@ -75,17 +75,23 @@ class Person extends Thing {
   get address(){ return this.computed.address; }
   set address(value){
     if(Thing.isEmpty(value)){ this.computed.address = EMPTY}
-    else if(Thing.isString(value)){ this.computed.address = value }
-    else { Thing.logError(this.type+': address must be a string or object', 'type') }
+    else if(Thing.isObject(value)){ this.computed.address = value }
+    else if(Thing.isPlainObject(value)){ this.computed.address = value }
+    else { Thing.logError(this.type+': address must be an object', 'type') }
   }
 
   get affiliation(){ return this.computed.affiliation; }
   set affiliation(value){
     if(Thing.isEmpty(value)){ this.computed.affiliation = EMPTY}
-    else if(Thing.isString(value)){ this.computed.affiliation = value }
     else if(Thing.isObject(value)){ this.computed.affiliation = value }
-    else if(Thing.isArray(value)){ this.computed.affiliation = value }
-    else { Thing.logError(this.type+': affiliation must be a string, object or array', 'type') }
+    else if(Thing.isArray(value)){
+      if(Thing.isObject(value[0])){
+        this.computed.affiliation = value
+      }else{
+        Person.logError(this.type+': affiliation must be an array of objects', 'type')
+      }
+    }
+    else { Thing.logError(this.type+': affiliation must be an array of objects', 'type') }
   }
 
   get alumniOf(){ return this.computed.alumniOf; }
