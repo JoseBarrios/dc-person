@@ -24,6 +24,7 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
+    "@josebarrios/postal-address": "^0.1.0",
     "@josebarrios/thing": "^0.3.0"
   }
 }

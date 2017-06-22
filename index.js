@@ -1,8 +1,11 @@
 const Thing = require('@josebarrios/thing');
+const Address = require('@josebarrios/postal-address')
 const EMPTY = '';
+const TYPE = 'Person'
 
 class Person extends Thing {
 
+  static get type(){ return TYPE; }
   //Inherets this.model, and this.emptyProperties
 
   constructor(model){
@@ -65,15 +68,15 @@ class Person extends Thing {
   get additionalName(){ return this.computed.additionalName; }
   set additionalName(value){
     if(Thing.isEmpty(value)){ this.computed.additionalName = EMPTY}
-    else if(Thing.isString(value)){ this.computed.additionalName = this.lodash.capitalize(value); }
-    else { Thing.logError(this.constructor.name+': additionalName must be a string', 'type') }
+    else if(Thing.isString(value)){ this.computed.additionalName = Person.utils.capitalize(value); }
+    else { Thing.logError(this.type+': additionalName must be a string', 'type') }
   }
 
   get address(){ return this.computed.address; }
   set address(value){
     if(Thing.isEmpty(value)){ this.computed.address = EMPTY}
     else if(Thing.isString(value)){ this.computed.address = value }
-    else { Thing.logError(this.constructor.name+': address must be a string or object', 'type') }
+    else { Thing.logError(this.type+': address must be a string or object', 'type') }
   }
 
   get affiliation(){ return this.computed.affiliation; }
@@ -82,7 +85,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.affiliation = value }
     else if(Thing.isObject(value)){ this.computed.affiliation = value }
     else if(Thing.isArray(value)){ this.computed.affiliation = value }
-    else { Thing.logError(this.constructor.name+': affiliation must be a string, object or array', 'type') }
+    else { Thing.logError(this.type+': affiliation must be a string, object or array', 'type') }
   }
 
   get alumniOf(){ return this.computed.alumniOf; }
@@ -91,14 +94,14 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.alumniOf = value }
     else if(Thing.isObject(value)){ this.computed.alumniOf = value }
     else if(Thing.isArray(value)){ this.computed.alumniOf = value }
-    else { Thing.logError(this.constructor.name+': alumniOf must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': alumniOf must be a string, object, or array', 'type') }
   }
 
   get award(){ return this.computed.award; }
   set award(value){
     if(Thing.isEmpty(value)){ this.computed.award = EMPTY}
     else if(Thing.isString(value)){ this.computed.award = value }
-    else { Thing.logError(this.constructor.name+': award must be a string', 'type') }
+    else { Thing.logError(this.type+': award must be a string', 'type') }
   }
 
   get birthDay(){ return this.computed.birthDay; }
@@ -106,7 +109,7 @@ class Person extends Thing {
     if(Thing.isEmpty(value)){ this.computed.birthDay = EMPTY}
     else if(Thing.isObject(value)){ this.computed.birthDay = value }
     else if(Thing.isNumber(value)){ this.computed.birthDay = value }
-    else { Thing.logError(this.constructor.name+': birthDay must be an object, or number (timestamp)', 'type') }
+    else { Thing.logError(this.type+': birthDay must be an object, or number (timestamp)', 'type') }
   }
 
   get birthPlace(){ return this.computed.birthPlace; }
@@ -114,7 +117,7 @@ class Person extends Thing {
     if(Thing.isEmpty(value)){ this.computed.birthPlace = EMPTY}
     else if(Thing.isString(value)){ this.computed.birthPlace = value }
     else if(Thing.isObject(value)){ this.computed.birthPlace = value }
-    else { Thing.logError(this.constructor.name+': birthPlace must be a string, or object', 'type') }
+    else { Thing.logError(this.type+': birthPlace must be a string, or object', 'type') }
   }
 
   get brand(){ return this.computed.brand; }
@@ -122,7 +125,7 @@ class Person extends Thing {
     if(Thing.isEmpty(value)){ this.computed.brand = EMPTY}
     else if(Thing.isString(value)){ this.computed.brand = value }
     else if(Thing.isObject(value)){ this.computed.brand = value }
-    else { Thing.logError(this.constructor.name+': brand must be a string or object', 'type') }
+    else { Thing.logError(this.type+': brand must be a string or object', 'type') }
   }
 
   get children(){ return this.computed.children; }
@@ -131,7 +134,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.children = value }
     else if(Thing.isObject(value)){ this.computed.children = value }
     else if(Thing.isArray(value)){ this.computed.children = value }
-    else { Thing.logError(this.constructor.name+': children must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': children must be a string, object, or array', 'type') }
   }
 
   get colleague(){ return this.computed.colleague; }
@@ -140,7 +143,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.colleague = value }
     else if(Thing.isObject(value)){ this.computed.colleague = value }
     else if(Thing.isArray(value)){ this.computed.colleague = value }
-    else { Thing.logError(this.constructor.name+': colleague must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': colleague must be a string, object, or array', 'type') }
   }
 
   get contactPoint(){ return this.computed.contactPoint; }
@@ -148,7 +151,7 @@ class Person extends Thing {
     if(Thing.isEmpty(value)){ this.computed.contactPoint = EMPTY}
     else if(Thing.isString(value)){ this.computed.contactPoint = value }
     else if(Thing.isObject(value)){ this.computed.contactPoint = value }
-    else { Thing.logError(this.constructor.name+': contactPoint must be a string or object', 'type') }
+    else { Thing.logError(this.type+': contactPoint must be a string or object', 'type') }
   }
 
   get deathDate(){ return this.computed.deathDate; }
@@ -156,7 +159,7 @@ class Person extends Thing {
     if(Thing.isEmpty(value)){ this.computed.deathDate = EMPTY}
     else if(Thing.isObject(value)){ this.computed.deathDate = value }
     else if(Thing.isNumber(value)){ this.computed.deathDate = value }
-    else { Thing.logError(this.constructor.name+': deathDate must be a number of object', 'type') }
+    else { Thing.logError(this.type+': deathDate must be a number of object', 'type') }
   }
 
   get deathPlace(){ return this.computed.deathPlace; }
@@ -164,39 +167,39 @@ class Person extends Thing {
     if(Thing.isEmpty(value)){ this.computed.deathPlace = EMPTY}
     else if(Thing.isString(value)){ this.computed.deathPlace = value }
     else if(Thing.isObject(value)){ this.computed.deathPlace = value }
-    else { Thing.logError(this.constructor.name+': deathPlace must be a string or object', 'type') }
+    else { Thing.logError(this.type+': deathPlace must be a string or object', 'type') }
   }
 
   get duns(){ return this.computed.duns; }
   set duns(value){
     if(Thing.isEmpty(value)){ this.computed.duns = EMPTY}
     else if(Thing.isString(value)){ this.computed.duns = value }
-    else { Thing.logError(this.constructor.name+': duns must be a string', 'type') }
+    else { Thing.logError(this.type+': duns must be a string', 'type') }
   }
 
   get email(){ return this.computed.email; }
   set email(value){
     if(Thing.isEmpty(value)){ this.computed.email = EMPTY}
     else if(Thing.isString(value)){
-      let email = this.lodash.toLower(value);
-      email = this.lodash.trim(email);
+      let email = Person.utils.toLower(value);
+      email = Person.utils.trim(email);
       this.computed.email = email;
-    } else { Thing.logError(this.constructor.name+': email must be a string, object, or array', 'type') }
+    } else { Thing.logError(this.type+': email must be a string, object, or array', 'type') }
   }
 
   get familyName(){ return this.computed.familyName; }
   set familyName(value){
     if(Thing.isEmpty(value)){ this.computed.familyName = EMPTY}
     else if(Thing.isString(value)){
-      this.computed.familyName = this.lodash.capitalize(value);
-    } else { Thing.logError(this.constructor.name+': familyName must be a string', 'type') }
+      this.computed.familyName = Person.utils.capitalize(value);
+    } else { Thing.logError(this.type+': familyName must be a string', 'type') }
   }
 
   get faxNumber(){ return this.computed.faxNumber; }
   set faxNumber(value){
     if(Thing.isEmpty(value)){ this.computed.faxNumber = EMPTY}
     else if(Thing.isNumber(value)){ this.computed.faxNumber = value }
-    else { Thing.logError(this.constructor.name+': faxNumber must be a number', 'type') }
+    else { Thing.logError(this.type+': faxNumber must be a number', 'type') }
   }
 
   get follows(){ return this.computed.follows; }
@@ -205,7 +208,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.follows = value }
     else if(Thing.isObject(value)){ this.computed.follows = value }
     else if(Thing.isArray(value)){ this.computed.follows = value }
-    else { Thing.logError(this.constructor.name+': follows must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': follows must be a string, object, or array', 'type') }
   }
 
   get founder(){ return this.computed.founder; }
@@ -214,7 +217,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.founder = value }
     else if(Thing.isObject(value)){ this.computed.founder = value }
     else if(Thing.isArray(value)){ this.computed.founder = value }
-    else { Thing.logError(this.constructor.name+': founder must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': founder must be a string, object, or array', 'type') }
   }
 
 
@@ -223,15 +226,15 @@ class Person extends Thing {
     if(Thing.isEmpty(value)){ this.computed.gender = EMPTY}
     else if(Thing.isString(value)){ this.computed.gender = value }
     else if(Thing.isObject(value)){ this.computed.gender = value }
-    else { Thing.logError(this.constructor.name+': gender must be a string or object', 'type') }
+    else { Thing.logError(this.type+': gender must be a string or object', 'type') }
   }
 
   get givenName(){ return this.computed.givenName; }
   set givenName(value){
     if(Thing.isEmpty(value)){ this.computed.givenName = EMPTY}
     else if(Thing.isString(value)){
-      this.computed.givenName = this.lodash.capitalize(value);
-    } else { Thing.logError(this.constructor.name+': givenName must be a string', 'type') }
+      this.computed.givenName = Person.utils.capitalize(value);
+    } else { Thing.logError(this.type+': givenName must be a string', 'type') }
   }
 
   get globalLocationNumber(){ return this.computed.globalLocationNumber; }
@@ -239,7 +242,7 @@ class Person extends Thing {
     if(Thing.isEmpty(value)){ this.computed.globalLocationNumber = EMPTY}
     else if(Thing.isString(value)){ this.computed.globalLocationNumber = value }
     else if(Thing.isNumber(value)){ this.computed.globalLocationNumber = value }
-    else { Thing.logError(this.constructor.name+': globalLocationNumber must be a string or number', 'type') }
+    else { Thing.logError(this.type+': globalLocationNumber must be a string or number', 'type') }
   }
 
   get hasOfferCatalog(){ return this.computed.hasOfferCatalog; }
@@ -248,7 +251,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.hasOfferCatalog = value }
     else if(Thing.isObject(value)){ this.computed.hasOfferCatalog = value }
     else if(Thing.isArray(value)){ this.computed.hasOfferCatalog = value }
-    else { Thing.logError(this.constructor.name+': hasOfferCatalog must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': hasOfferCatalog must be a string, object, or array', 'type') }
   }
 
   get hasPOS(){ return this.computed.hasPOS; }
@@ -257,7 +260,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.hasPOS = value }
     else if(Thing.isObject(value)){ this.computed.hasPOS = value }
     else if(Thing.isArray(value)){ this.computed.hasPOS = value }
-    else { Thing.logError(this.constructor.name+': hasPOS must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': hasPOS must be a string, object, or array', 'type') }
   }
 
   get height(){ return this.computed.height; }
@@ -266,7 +269,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.height = value }
     else if(Thing.isObject(value)){ this.computed.height = value }
     else if(Thing.isNumber(value)){ this.computed.height = value }
-    else { Thing.logError(this.constructor.name+': height must be a string, object, or number', 'type') }
+    else { Thing.logError(this.type+': height must be a string, object, or number', 'type') }
   }
 
   get homeLocation(){ return this.computed.homeLocation; }
@@ -274,35 +277,35 @@ class Person extends Thing {
     if(Thing.isEmpty(value)){ this.computed.homeLocation = EMPTY}
     else if(Thing.isString(value)){ this.computed.homeLocation = value }
     else if(Thing.isObject(value)){ this.computed.homeLocation = value }
-    else { Thing.logError(this.constructor.name+': homeLocation must be a string or object', 'type') }
+    else { Thing.logError(this.type+': homeLocation must be a string or object', 'type') }
   }
 
   get honorificPrefix(){ return this.computed.honorificPrefix; }
   set honorificPrefix(value){
     if(Thing.isEmpty(value)){ this.computed.honorificPrefix = EMPTY}
     else if(Thing.isString(value)){ this.computed.honorificPrefix = value }
-    else { Thing.logError(this.constructor.name+': honorificPrefix must be a string', 'type') }
+    else { Thing.logError(this.type+': honorificPrefix must be a string', 'type') }
   }
 
   get honorificSuffix(){ return this.computed.honorificSuffix; }
   set honorificSuffix(value){
     if(Thing.isEmpty(value)){ this.computed.honorificSuffix = EMPTY}
     else if(Thing.isString(value)){ this.computed.honorificSuffix = value }
-    else { Thing.logError(this.constructor.name+': honorificSuffix must be a string', 'type') }
+    else { Thing.logError(this.type+': honorificSuffix must be a string', 'type') }
   }
 
   get isicV4(){ return this.computed.isicV4; }
   set isicV4(value){
     if(Thing.isEmpty(value)){ this.computed.isicV4 = EMPTY}
     else if(Thing.isString(value)){ this.computed.isicV4 = value }
-    else { Thing.logError(this.constructor.name+': isicV4 must be a string', 'type') }
+    else { Thing.logError(this.type+': isicV4 must be a string', 'type') }
   }
 
   get jobTitle(){ return this.computed.jobTitle; }
   set jobTitle(value){
     if(Thing.isEmpty(value)){ this.computed.jobTitle = EMPTY}
     else if(Thing.isString(value)){ this.computed.jobTitle = value }
-    else { Thing.logError(this.constructor.name+': jobTitle must be a string', 'type') }
+    else { Thing.logError(this.type+': jobTitle must be a string', 'type') }
   }
 
   get knows(){ return this.computed.knows; }
@@ -311,7 +314,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.knows = value }
     else if(Thing.isObject(value)){ this.computed.knows = value }
     else if(Thing.isArray(value)){ this.computed.knows = value }
-    else { Thing.logError(this.constructor.name+': knows must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': knows must be a string, object, or array', 'type') }
   }
 
   get makesOffer(){ return this.computed.makesOffer; }
@@ -320,7 +323,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.makesOffer = value }
     else if(Thing.isObject(value)){ this.computed.makesOffer = value }
     else if(Thing.isArray(value)){ this.computed.makesOffer = value }
-    else { Thing.logError(this.constructor.name+': makesOffer must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': makesOffer must be a string, object, or array', 'type') }
   }
 
   get memberOf(){ return this.computed.memberOf; }
@@ -329,14 +332,14 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.memberOf = value }
     else if(Thing.isObject(value)){ this.computed.memberOf = value }
     else if(Thing.isArray(value)){ this.computed.memberOf = value }
-    else { Thing.logError(this.constructor.name+': memberOf must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': memberOf must be a string, object, or array', 'type') }
   }
 
   get naics(){ return this.computed.naics; }
   set naics(value){
     if(Thing.isEmpty(value)){ this.computed.naics = EMPTY}
     else if(Thing.isString(value)){ this.computed.naics = value }
-    else { Thing.logError(this.constructor.name+': naics must be a string', 'type') }
+    else { Thing.logError(this.type+': naics must be a string', 'type') }
   }
 
   get nationality(){ return this.computed.nationality; }
@@ -345,7 +348,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.nationality = value }
     else if(Thing.isObject(value)){ this.computed.nationality = value }
     else if(Thing.isArray(value)){ this.computed.nationality = value }
-    else { Thing.logError(this.constructor.name+': nationality must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': nationality must be a string, object, or array', 'type') }
   }
 
   get netWorth(){ return this.computed.netWorth; }
@@ -354,7 +357,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.netWorth = value }
     else if(Thing.isObject(value)){ this.computed.netWorth = value }
     else if(Thing.isNumber(value)){ this.computed.netWorth = value }
-    else { Thing.logError(this.constructor.name+': netWorth must be a string, object, or number', 'type') }
+    else { Thing.logError(this.type+': netWorth must be a string, object, or number', 'type') }
   }
 
   get owns(){ return this.computed.owns; }
@@ -363,7 +366,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.owns = value }
     else if(Thing.isObject(value)){ this.computed.owns = value }
     else if(Thing.isArray(value)){ this.computed.owns = value }
-    else { Thing.logError(this.constructor.name+': owns must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': owns must be a string, object, or array', 'type') }
   }
 
   get parent(){ return this.computed.parent; }
@@ -372,7 +375,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.parent = value }
     else if(Thing.isObject(value)){ this.computed.parent = value }
     else if(Thing.isArray(value)){ this.computed.parent = value }
-    else { Thing.logError(this.constructor.name+': parent must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': parent must be a string, object, or array', 'type') }
   }
 
   get performerIn(){ return this.computed.performerIn; }
@@ -381,7 +384,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.performerIn = value }
     else if(Thing.isObject(value)){ this.computed.performerIn = value }
     else if(Thing.isArray(value)){ this.computed.performerIn = value }
-    else { Thing.logError(this.constructor.name+': performerIn must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': performerIn must be a string, object, or array', 'type') }
   }
 
   get relatedTo(){ return this.computed.relatedTo; }
@@ -390,7 +393,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.relatedTo = value }
     else if(Thing.isObject(value)){ this.computed.relatedTo = value }
     else if(Thing.isArray(value)){ this.computed.relatedTo = value }
-    else { Thing.logError(this.constructor.name+': relatedTo must be a string, object, or array') }
+    else { Thing.logError(this.type+': relatedTo must be a string, object, or array') }
   }
 
   get seeks(){ return this.computed.seek; }
@@ -399,7 +402,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.seeks = value }
     else if(Thing.isObject(value)){ this.computed.seeks = value }
     else if(Thing.isArray(value)){ this.computed.seeks = value }
-    else { Thing.logError(this.constructor.name+': seeks must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': seeks must be a string, object, or array', 'type') }
   }
 
   get sibling(){ return this.computed.sibling; }
@@ -408,7 +411,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.sibling = value }
     else if(Thing.isObject(value)){ this.computed.sibling = value }
     else if(Thing.isArray(value)){ this.computed.sibling = value }
-    else { Thing.logError(this.constructor.name+': sibling must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': sibling must be a string, object, or array', 'type') }
   }
 
   get sponsor(){ return this.computed.sponsor; }
@@ -417,7 +420,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.sponsor = value }
     else if(Thing.isObject(value)){ this.computed.sponsor = value }
     else if(Thing.isArray(value)){ this.computed.sponsor = value }
-    else { Thing.logError(this.constructor.name+': sponsor must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': sponsor must be a string, object, or array', 'type') }
   }
 
   get spouse(){ return this.computed.spouse; }
@@ -426,7 +429,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.spouse = value }
     else if(Thing.isObject(value)){ this.computed.spouse = value }
     else if(Thing.isArray(value)){ this.computed.spouse = value }
-    else { Thing.logError(this.constructor.name+': spouse must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': spouse must be a string, object, or array', 'type') }
   }
 
   get taxID(){ return this.computed.taxID; }
@@ -435,7 +438,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.taxID = value }
     else if(Thing.isObject(value)){ this.computed.taxID = value }
     else if(Thing.isArray(value)){ this.computed.taxID = value }
-    else { Thing.logError(this.constructor.name+': taxID must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': taxID must be a string, object, or array', 'type') }
   }
 
   get telephone(){ return this.computed.telephone; }
@@ -445,7 +448,7 @@ class Person extends Thing {
     else if(Thing.isNumber(value)){ this.computed.telephone = value }
     else if(Thing.isObject(value)){ this.computed.telephone = value }
     else if(Thing.isArray(value)){ this.computed.telephone = value }
-    else { Thing.logError(this.constructor.name+': telephone must be a string, object, number or array', 'type') }
+    else { Thing.logError(this.type+': telephone must be a string, object, number or array', 'type') }
   }
 
   get vatID(){ return this.computed.vatID; }
@@ -454,7 +457,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.vatID = value }
     else if(Thing.isObject(value)){ this.computed.vatID = value }
     else if(Thing.isArray(value)){ this.computed.vatID = value }
-    else { Thing.logError(this.constructor.name+': vatID must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': vatID must be a string, object, or array', 'type') }
   }
 
   get weight(){ return this.computed.weight; }
@@ -463,7 +466,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.weight = value }
     else if(Thing.isObject(value)){ this.computed.weight = value }
     else if(Thing.isNumber(value)){ this.computed.weight = value }
-    else { Thing.logError(this.constructor.name+': weight must be a string, object, or number', 'type') }
+    else { Thing.logError(this.type+': weight must be a string, object, or number', 'type') }
   }
 
   get workLocation(){ return this.computed.workLocation; }
@@ -472,7 +475,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.workLocation = value }
     else if(Thing.isObject(value)){ this.computed.workLocation = value }
     else if(Thing.isArray(value)){ this.computed.workLocation = value }
-    else { Thing.logError(this.constructor.name+': workLocation must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': workLocation must be a string, object, or array', 'type') }
   }
 
   get worksFor(){ return this.computed.worksFor; }
@@ -481,7 +484,7 @@ class Person extends Thing {
     else if(Thing.isString(value)){ this.computed.worksFor = value }
     else if(Thing.isObject(value)){ this.computed.worksFor = value }
     else if(Thing.isArray(value)){ this.computed.worksFor = value }
-    else { Thing.logError(this.constructor.name+': worksFor must be a string, object, or array', 'type') }
+    else { Thing.logError(this.type+': worksFor must be a string, object, or array', 'type') }
   }
 
   //////////////////////

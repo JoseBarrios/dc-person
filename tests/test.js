@@ -11,7 +11,7 @@ model.givenName = 'jose';
 model.familyName = 'barrios';
 model.email = 'jose@barrios.io';
 model.affiliation = null;
-model.vatID = 1234;
+model.vatID = '1234';
 model.identifier = undefined;
 model.additionalName = "";//EMPTY STRING
 model.gender = '';//EMPTY STRING
@@ -24,34 +24,52 @@ key.givenName = 'Jose';
 key.familyName = 'Barrios';
 key.affiliationName = 'BeVisible';
 
-describe('#serialize', function() {
-	it('should return the serialized version of the model', function() {
-		assert.equal(person.givenName, 'Jose');
-    assert.equal(person.additionalName, '');
-	});
-});
+describe('Person', function() {
 
-describe('#getEmptyProperties', function() {
-	it('should return a new object with all the empty properties of the person model', function() {
-    person.additionalName = '';
-    assert.equal(Person.unsetProperties(person).additionalName, '');
-	});
-});
+  describe('Static Methods', function() {
 
-describe('person.fullName', function() {
-	it('should return the given and family names in a single string', function() {
-		assert.equal(person.fullName, key.fullName);
-	});
-});
+    describe('Person.type', function() {
+      it('should return the class type', function() {
+        assert.equal(Person.type, 'Person' );
+      });
+    });
 
-describe('person.givenName', function() {
-	it('should capitalize given name', function() {
-		assert.equal(person.givenName, key.givenName);
-	});
-});
+  });//Static
 
-describe('person.familyName', function() {
-	it('should capitalize family name', function() {
-		assert.equal(person.familyName, key.familyName);
-	});
-});
+  describe('Instance', function() {
+
+    describe('person.type', function() {
+      it('should return the class type', function() {
+        assert.equal(person.type, 'Person' );
+        assert.equal(Person.type, person.type );
+      });
+    });
+
+
+    describe('person.fullName', function() {
+      it('should return the given and family names in a single string', function() {
+        assert.equal(person.fullName, key.fullName);
+      });
+    });
+
+    describe('person.givenName', function() {
+      it('should capitalize given name', function() {
+        assert.equal(person.givenName, key.givenName);
+      });
+    });
+
+    describe('person.familyName', function() {
+      it('should capitalize family name', function() {
+        assert.equal(person.familyName, key.familyName);
+      });
+    });
+
+    describe('person.fullName', function() {
+      it('should return the given and family names in a single string', function() {
+        assert.equal(person.fullName, key.fullName);
+      });
+    });
+
+  });//Instance
+
+});//Person
