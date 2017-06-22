@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/JoseBarrios/person#readme",
   "devDependencies": {
+    "@josebarrios/organization": "^1.1.1",
     "mocha": "^3.4.2",
     "mongodb": "^2.2.29"
   },

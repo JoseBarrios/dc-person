@@ -14,7 +14,7 @@ class Person extends Thing {
 
     this.additionalName = model.additionalName;
     this.address = model.address;
-    this.affiliation = model.affiliation;
+    this.affiliation = model.affiliation || [];
     this.alumniOf = model.alumniOf;
     this.award = model.award;
     this.birthDay = model.birthDay;
@@ -65,14 +65,15 @@ class Person extends Thing {
 
   }
 
-  get additionalName(){ return this.computed.additionalName; }
+  get additionalName(){ return this.computed.additionalName || '' }
   set additionalName(value){
     if(Thing.isEmpty(value)){ this.computed.additionalName = EMPTY}
-    else if(Thing.isString(value)){ this.computed.additionalName = Person.utils.capitalize(value); }
-    else { Thing.logError(this.type+': additionalName must be a string', 'type') }
+    else if(Thing.isString(value)){
+      this.computed.additionalName = Person.utils.capitalize(value);
+    } else { Thing.logError(this.type+': additionalName must be a string', 'type') }
   }
 
-  get address(){ return this.computed.address; }
+  get address(){ return this.computed.address }
   set address(value){
     if(Thing.isEmpty(value)){ this.computed.address = EMPTY}
     else if(Thing.isObject(value)){ this.computed.address = value }
@@ -80,17 +81,10 @@ class Person extends Thing {
     else { Thing.logError(this.type+': address must be an object', 'type') }
   }
 
-  get affiliation(){ return this.computed.affiliation; }
+  get affiliation(){ return this.computed.affiliation }
   set affiliation(value){
     if(Thing.isEmpty(value)){ this.computed.affiliation = EMPTY}
-    else if(Thing.isObject(value)){ this.computed.affiliation = value }
-    else if(Thing.isArray(value)){
-      if(Thing.isObject(value[0])){
-        this.computed.affiliation = value
-      }else{
-        Person.logError(this.type+': affiliation must be an array of objects', 'type')
-      }
-    }
+    else if(Thing.isArray(value)){ this.computed.affiliation = value }
     else { Thing.logError(this.type+': affiliation must be an array of objects', 'type') }
   }
 
