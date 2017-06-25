@@ -14,7 +14,7 @@ class Person extends Thing {
 
     this.additionalName = model.additionalName;
     this.address = model.address;
-    this.affiliation = model.affiliation || [];
+    this.affiliation = model.affiliation;
     //this.alumniOf = model.alumniOf;
     //this.award = model.award;
     //this.birthDay = model.birthDay;
