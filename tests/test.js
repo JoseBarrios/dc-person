@@ -54,19 +54,19 @@ describe('Person', function() {
       });
     });
 
-    describe('person.affiliation', function() {
-      it('should set/get the affiliation property', function() {
-        let organization = new Organization({})
-        person.affiliation.push(Organization.model(organization))
-        let key = [];
-        key.push(Organization.model(organization));
-        assert.deepEqual(person.affiliation, key);
-        person.affiliation = [];
-        assert.deepEqual(person.affiliation, []);
-        person.affiliation = {};
-        assert.deepEqual(person.affiliation, []);
-      });
-    });
+/*    describe('person.affiliation', function() {*/
+      //it('should set/get the affiliation property', function() {
+        //let organization = new Organization({})
+        //person.affiliation.push(Organization.model(organization))
+        //let key = [];
+        //key.push(Organization.model(organization));
+        //assert.deepEqual(person.affiliation, key);
+        //person.affiliation = [];
+        //assert.deepEqual(person.affiliation, []);
+        //person.affiliation = {};
+        //assert.deepEqual(person.affiliation, []);
+      //});
+    //});
 
 
     //describe('person.xxx', function() {
