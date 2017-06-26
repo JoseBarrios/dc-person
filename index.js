@@ -41,7 +41,7 @@ class Person extends Thing {
     this.honorificPrefix = model.honorificPrefix;
     //this.honorificSuffix = model.honorificSuffix;
     //this.isicV4 = model.isicV4;
-    //this.jobTitle = model.jobTitle;
+    this.jobTitle = model.jobTitle;
     //this.knows = model.knows;
     //this.makesOffer = model.makesOffer;
     //this.memberOf = model.memberOf;
