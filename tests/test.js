@@ -43,14 +43,16 @@ describe('Person', function() {
 
     describe('person.address', function() {
       it('should set/get the address property', function() {
-        let address = new Address({})
+        var model = {};
+        model.addressCountry = 'Canada';
+        model.addressLocality = 'Victoria';
+        model.addressRegion = 'BC';
+        model.postOfficeBoxNumber  = 'POBOX123';
+        model.postalCode = 'V8W1L6';
+        model.streetAddress = '204-759 Yates St';
+        let address = new Address(model);
         person.address = Address.model(address);
         assert.equal(person.address, Address.model(address) );
-        address = ObjectID('59486504191573839556bf19');
-        person.address = address;
-        assert.deepEqual(person.address, address );
-        person.address = '1234 Random St.';
-        assert.deepEqual(person.address, address );
       });
     });
 

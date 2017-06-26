@@ -76,9 +76,10 @@ class Person extends Thing {
   get address(){ return this.computed.address }
   set address(value){
     if(Thing.isEmpty(value)){ this.computed.address = EMPTY}
+    else if(Thing.isString(value)){ this.computed.address = value }
     else if(Thing.isObject(value)){ this.computed.address = value }
     else if(Thing.isPlainObject(value)){ this.computed.address = value }
-    else { Thing.logError(this.type+': address must be an object', 'type') }
+    else { Thing.logError(this.type+': address must be an object or string', 'type') }
   }
 
   get affiliation(){ return this.computed.affiliation }
