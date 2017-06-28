@@ -8,6 +8,10 @@ const ObjectID = require('mongodb').ObjectID;
 
 
 var model = {};
+model.givenName = 'jose';
+model.familyName = 'bArrios';
+model.additionalName =' luis';
+model.email = 'jose@barrios.io'
 let person = new Person(model);
 person.muteErrors = true;
 
@@ -56,6 +60,17 @@ describe('Person', function() {
       });
     });
 
+    describe('person.fullName', function() {
+      it('should return the given and family names in a single string', function() {
+        assert.equal(person.fullName, 'Jose L. Barrios');
+        person.additionalName = '';
+        assert.equal(person.fullName, 'Jose Barrios');
+
+      });
+    });
+
+
+
 /*    describe('person.affiliation', function() {*/
       //it('should set/get the affiliation property', function() {
         //let organization = new Organization({})
@@ -78,12 +93,6 @@ describe('Person', function() {
     //});
 
 
-
-    //describe('person.fullName', function() {
-      //it('should return the given and family names in a single string', function() {
-        //assert.equal(person.fullName, key.fullName);
-      //});
-    //});
 
     //describe('person.givenName', function() {
       //it('should capitalize given name', function() {

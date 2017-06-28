@@ -493,7 +493,7 @@ class Person extends Thing {
   //////////////////////
 
   get fullName(){
-    let name = `${this.givenName} ${this.additionalName || '\b'} ${this.familyName}`;
+    let name = `${this.givenName} ${this.additionalName.charAt(0) || '\b'}${this.additionalName? '.' : ''} ${this.familyName}`;
     name = name.replace(/.?\x08/, "");
     return name;
   }
