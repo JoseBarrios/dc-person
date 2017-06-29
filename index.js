@@ -63,6 +63,8 @@ class Person extends Thing {
     //this.workLocation = model.workLocation;
     this.worksFor = model.worksFor;
 
+    this.type = TYPE;
+
   }
 
   get additionalName(){ return this.computed.additionalName || '' }
