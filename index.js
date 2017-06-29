@@ -63,8 +63,6 @@ class Person extends Thing {
     //this.workLocation = model.workLocation;
     this.worksFor = model.worksFor;
 
-    this.type = TYPE;
-
   }
 
   get additionalName(){ return this.computed.additionalName || '' }
@@ -493,9 +491,6 @@ class Person extends Thing {
   //////////////////////
   // COMPUTED PROPERTIES
   //////////////////////
-
-  set type(value){ }
-  get type(){ return TYPE; }
 
   get fullName(){
     let name = `${this.givenName} ${this.additionalName.charAt(0) || '\b'}${this.additionalName? '.' : ''} ${this.familyName}`;

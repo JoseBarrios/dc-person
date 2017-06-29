@@ -15,7 +15,6 @@ model.email = 'jose@barrios.io'
 let person = new Person(model);
 person.muteErrors = true;
 
-
 describe('Person', function() {
 
   describe('Static Methods', function() {
