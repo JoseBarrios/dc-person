@@ -68,6 +68,14 @@ describe('Person', function() {
       });
     });
 
+    describe('#isValidKey', function() {
+      it('should return true if its a valid object property', function() {
+        assert.equal(person.isValidKey('givenName'), true);
+        assert.equal(person.isValidKey('invalid'), false);
+
+      });
+    });
+
 
 
 /*    describe('person.affiliation', function() {*/
