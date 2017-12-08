@@ -66,13 +66,7 @@ class Person extends Thing {
 
 	//AKA Middlename
   get additionalName(){ return this.model.additionalName || '' }
-  set additionalName(value){
-
-    //if(Thing.isEmpty(value)){ this.model.additionalName = EMPTY}
-    //else if(Thing.isString(value)){
-      //this.model.additionalName = Thing.utils.capitalize(value);
-    //} else { Thing.logError(this.type+': additionalName must be a string', 'type') }
-  }
+  set additionalName(value){ this.model.additionalName = Thing.utils.capitalize(value); }
 
   get address(){ return this.model.address }
   set address(value){
