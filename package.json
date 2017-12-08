@@ -24,7 +24,7 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "dc-thing": "^0.1.1",
+    "dc-thing": "^0.1.2",
     "schema-dot-org": "^0.1.0"
   }
 }
