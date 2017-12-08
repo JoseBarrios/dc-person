@@ -1,6 +1,6 @@
 {
-  "name": "@josebarrios/person",
-  "version": "1.1.42",
+  "name": "dc-person",
+  "version": "0.1.0",
   "description": "Person class that conforms to Schema.org",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JoseBarrios/person.git"
+    "url": "git+https://github.com/JoseBarrios/dc-person.git"
   },
   "keywords": [
     "Person",
@@ -17,16 +17,14 @@
   "author": "JoseBarrios",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/JoseBarrios/person/issues"
+    "url": "https://github.com/JoseBarrios/dc-person/issues"
   },
-  "homepage": "https://github.com/JoseBarrios/person#readme",
+  "homepage": "https://github.com/JoseBarrios/dc-person#readme",
   "devDependencies": {
-    "@josebarrios/organization": "^1.1.1",
-    "mocha": "^3.4.2",
-    "mongodb": "^2.2.29"
+    "mocha": "^3.4.2"
   },
   "dependencies": {
-    "@josebarrios/postal-address": "^0.1.0",
-    "@josebarrios/thing": "^0.3.0"
+    "dc-thing": "^0.1.1",
+    "schema-dot-org": "^0.1.0"
   }
 }

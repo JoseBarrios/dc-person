@@ -2,10 +2,6 @@
 
 const assert = require('assert');
 const Person = require('../index.js');
-const Address = require('@josebarrios/postal-address');
-const Organization = require('@josebarrios/organization');
-const ObjectID = require('mongodb').ObjectID;
-
 
 var model = {};
 model.givenName = 'jose';
@@ -53,9 +49,9 @@ describe('Person', function() {
         model.postOfficeBoxNumber  = 'POBOX123';
         model.postalCode = 'V8W1L6';
         model.streetAddress = '204-759 Yates St';
-        let address = new Address(model);
-        person.address = Address.model(address);
-        assert.equal(person.address, Address.model(address) );
+        //let address = new Address(model);
+        person.address = model;
+        assert.equal(person.address, model );
       });
     });
 
