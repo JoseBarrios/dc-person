@@ -19,7 +19,7 @@ class Person extends Thing {
     //this.birthDay = model.birthDay;
     //this.birthPlace = model.birthPlace;
     //this.brand = model.brand;
-    //this.children = model.children;
+    this.children = model.children;
     //this.colleague = model.colleague;
     this.contactPoint = model.contactPoint;
     //this.deathDate = model.deathDate;
@@ -36,7 +36,7 @@ class Person extends Thing {
     //this.hasOfferCatalog = model.hasOfferCatalog;
     //this.hasPOS = model.hasPOS;
     //this.height = model.height;
-    //this.homeLocation = model.homeLocation;
+    this.homeLocation = model.homeLocation;
     this.honorificPrefix = model.honorificPrefix;
     //this.honorificSuffix = model.honorificSuffix;
     //this.isicV4 = model.isicV4;
@@ -48,13 +48,13 @@ class Person extends Thing {
     //this.nationality = model.nationality;
     //this.netWorth = model.netWorth;
     //this.owns = model.owns;
-    //this.parent = model.parent;
+    this.parent = model.parent;
     //this.performerIn = model.performerIn;
     //this.relatedTo = model.relatedTo;
     //this.seeks = model.seeks;
-    //this.sibling = model.sibling;
+    this.sibling = model.sibling;
     //this.sponsor = model.sponsor;
-    //this.spouse = model.spouse;
+    this.spouse = model.spouse;
     this.taxID = model.taxID;
     this.telephone = model.telephone;
     //this.vatID = model.vatID;
