@@ -104,6 +104,7 @@ class Person extends Thing {
     get birthDay(){ return this.model.birthDay; }
     set birthDay(value){
         if(Thing.isEmpty(value)){ return }
+        else if(Thing.isString(value)){ this.model.birthDay = value }
         else if(Thing.isObject(value)){ this.model.birthDay = value }
         else if(Thing.isNumber(value)){ this.model.birthDay = value }
         else { Thing.logError(this.type+': birthDay must be an object, or number (timestamp)', 'type') }
