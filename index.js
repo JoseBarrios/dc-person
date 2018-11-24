@@ -127,7 +127,6 @@ class Person extends Thing {
 
     get children(){ return this.model.children; }
     set children(value){
-        console.log("VA:IE", value)
         if(Thing.isNull(value) || Thing.isEmpty(value) || Thing.isUndefined(value)){ delete this.model.children; }
         else if(Thing.isString(value)){ this.model.children = value }
         else if(Thing.isObject(value)){ this.model.children = value }
