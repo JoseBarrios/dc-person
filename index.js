@@ -1,5 +1,4 @@
 const Thing = require('dc-thing');
-const EMPTY = '';
 const TYPE = 'Person'
 
 class Person extends Thing {
@@ -70,7 +69,7 @@ class Person extends Thing {
 
   get address(){ return this.model.address }
   set address(value){
-    if(Thing.isEmpty(value)){ this.model.address = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.address = value }
     else if(Thing.isObject(value)){ this.model.address = value }
     else if(Thing.isPlainObject(value)){ this.model.address = value }
@@ -79,14 +78,14 @@ class Person extends Thing {
 
   get affiliation(){ return this.model.affiliation }
   set affiliation(value){
-    if(Thing.isEmpty(value)){ this.model.affiliation = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isArray(value)){ this.model.affiliation = value }
     else { Thing.logError(this.type+': affiliation must be an array of objects', 'type') }
   }
 
   get alumniOf(){ return this.model.alumniOf; }
   set alumniOf(value){
-    if(Thing.isEmpty(value)){ this.model.alumniOf = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.alumniOf = value }
     else if(Thing.isObject(value)){ this.model.alumniOf = value }
     else if(Thing.isArray(value)){ this.model.alumniOf = value }
@@ -95,14 +94,14 @@ class Person extends Thing {
 
   get award(){ return this.model.award; }
   set award(value){
-    if(Thing.isEmpty(value)){ this.model.award = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.award = value }
     else { Thing.logError(this.type+': award must be a string', 'type') }
   }
 
   get birthDay(){ return this.model.birthDay; }
   set birthDay(value){
-    if(Thing.isEmpty(value)){ this.model.birthDay = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isObject(value)){ this.model.birthDay = value }
     else if(Thing.isNumber(value)){ this.model.birthDay = value }
     else { Thing.logError(this.type+': birthDay must be an object, or number (timestamp)', 'type') }
@@ -110,7 +109,7 @@ class Person extends Thing {
 
   get birthPlace(){ return this.model.birthPlace; }
   set birthPlace(value){
-    if(Thing.isEmpty(value)){ this.model.birthPlace = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.birthPlace = value }
     else if(Thing.isObject(value)){ this.model.birthPlace = value }
     else { Thing.logError(this.type+': birthPlace must be a string, or object', 'type') }
@@ -118,7 +117,7 @@ class Person extends Thing {
 
   get brand(){ return this.model.brand; }
   set brand(value){
-    if(Thing.isEmpty(value)){ this.model.brand = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.brand = value }
     else if(Thing.isObject(value)){ this.model.brand = value }
     else { Thing.logError(this.type+': brand must be a string or object', 'type') }
@@ -126,7 +125,7 @@ class Person extends Thing {
 
   get children(){ return this.model.children; }
   set children(value){
-    if(Thing.isEmpty(value)){ this.model.children = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.children = value }
     else if(Thing.isObject(value)){ this.model.children = value }
     else if(Thing.isArray(value)){ this.model.children = value }
@@ -135,7 +134,7 @@ class Person extends Thing {
 
   get colleague(){ return this.model.colleague; }
   set colleague(value){
-    if(Thing.isEmpty(value)){ this.model.colleague = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.colleague = value }
     else if(Thing.isObject(value)){ this.model.colleague = value }
     else if(Thing.isArray(value)){ this.model.colleague = value }
@@ -144,7 +143,7 @@ class Person extends Thing {
 
   get contactPoint(){ return this.model.contactPoint; }
   set contactPoint(value){
-    if(Thing.isEmpty(value)){ this.model.contactPoint = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.contactPoint = value }
     else if(Thing.isObject(value)){ this.model.contactPoint = value }
     else { Thing.logError(this.type+': contactPoint must be a string or object', 'type') }
@@ -152,7 +151,7 @@ class Person extends Thing {
 
   get deathDate(){ return this.model.deathDate; }
   set deathDate(value){
-    if(Thing.isEmpty(value)){ this.model.deathDate = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isObject(value)){ this.model.deathDate = value }
     else if(Thing.isNumber(value)){ this.model.deathDate = value }
     else { Thing.logError(this.type+': deathDate must be a number of object', 'type') }
@@ -160,7 +159,7 @@ class Person extends Thing {
 
   get deathPlace(){ return this.model.deathPlace; }
   set deathPlace(value){
-    if(Thing.isEmpty(value)){ this.model.deathPlace = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.deathPlace = value }
     else if(Thing.isObject(value)){ this.model.deathPlace = value }
     else { Thing.logError(this.type+': deathPlace must be a string or object', 'type') }
@@ -168,14 +167,14 @@ class Person extends Thing {
 
   get duns(){ return this.model.duns; }
   set duns(value){
-    if(Thing.isEmpty(value)){ this.model.duns = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.duns = value }
     else { Thing.logError(this.type+': duns must be a string', 'type') }
   }
 
   get email(){ return this.model.email; }
   set email(value){
-    if(Thing.isEmpty(value)){ this.model.email = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){
       let email = Person.utils.toLower(value);
       email = Person.utils.trim(email);
@@ -185,7 +184,7 @@ class Person extends Thing {
 
   get familyName(){ return this.model.familyName; }
   set familyName(value){
-    if(Thing.isEmpty(value)){ this.model.familyName = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){
       this.model.familyName = Person.utils.capitalize(value);
     } else { Thing.logError(this.type+': familyName must be a string', 'type') }
@@ -193,14 +192,14 @@ class Person extends Thing {
 
   get faxNumber(){ return this.model.faxNumber; }
   set faxNumber(value){
-    if(Thing.isEmpty(value)){ this.model.faxNumber = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isNumber(value)){ this.model.faxNumber = value }
     else { Thing.logError(this.type+': faxNumber must be a number', 'type') }
   }
 
   get follows(){ return this.model.follows; }
   set follows(value){
-    if(Thing.isEmpty(value)){ this.model.follows = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.follows = value }
     else if(Thing.isObject(value)){ this.model.follows = value }
     else if(Thing.isArray(value)){ this.model.follows = value }
@@ -209,7 +208,7 @@ class Person extends Thing {
 
   get founder(){ return this.model.founder; }
   set founder(value){
-    if(Thing.isEmpty(value)){ this.model.founder = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.founder = value }
     else if(Thing.isObject(value)){ this.model.founder = value }
     else if(Thing.isArray(value)){ this.model.founder = value }
@@ -219,7 +218,7 @@ class Person extends Thing {
 
   get gender(){ return this.model.gender; }
   set gender(value){
-    if(Thing.isEmpty(value)){ this.model.gender = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.gender = value }
     else if(Thing.isObject(value)){ this.model.gender = value }
     else { Thing.logError(this.type+': gender must be a string or object', 'type') }
@@ -227,7 +226,7 @@ class Person extends Thing {
 
   get givenName(){ return this.model.givenName; }
   set givenName(value){
-    if(Thing.isEmpty(value)){ this.model.givenName = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){
       this.model.givenName = Person.utils.capitalize(value);
     } else { Thing.logError(this.type+': givenName must be a string', 'type') }
@@ -235,7 +234,7 @@ class Person extends Thing {
 
   get globalLocationNumber(){ return this.model.globalLocationNumber; }
   set globalLocationNumber(value){
-    if(Thing.isEmpty(value)){ this.model.globalLocationNumber = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.globalLocationNumber = value }
     else if(Thing.isNumber(value)){ this.model.globalLocationNumber = value }
     else { Thing.logError(this.type+': globalLocationNumber must be a string or number', 'type') }
@@ -243,7 +242,7 @@ class Person extends Thing {
 
   get hasOfferCatalog(){ return this.model.hasOfferCatalog; }
   set hasOfferCatalog(value){
-    if(Thing.isEmpty(value)){ this.model.hasOfferCatalog = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.hasOfferCatalog = value }
     else if(Thing.isObject(value)){ this.model.hasOfferCatalog = value }
     else if(Thing.isArray(value)){ this.model.hasOfferCatalog = value }
@@ -252,7 +251,7 @@ class Person extends Thing {
 
   get hasPOS(){ return this.model.hasPOS; }
   set hasPOS(value){
-    if(Thing.isEmpty(value)){ this.model.hasPOS = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.hasPOS = value }
     else if(Thing.isObject(value)){ this.model.hasPOS = value }
     else if(Thing.isArray(value)){ this.model.hasPOS = value }
@@ -261,7 +260,7 @@ class Person extends Thing {
 
   get height(){ return this.model.height; }
   set height(value){
-    if(Thing.isEmpty(value)){ this.model.height = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.height = value }
     else if(Thing.isObject(value)){ this.model.height = value }
     else if(Thing.isNumber(value)){ this.model.height = value }
@@ -270,7 +269,7 @@ class Person extends Thing {
 
   get homeLocation(){ return this.model.homeLocation; }
   set homeLocation(value){
-    if(Thing.isEmpty(value)){ this.model.homeLocation = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.homeLocation = value }
     else if(Thing.isObject(value)){ this.model.homeLocation = value }
     else { Thing.logError(this.type+': homeLocation must be a string or object', 'type') }
@@ -278,35 +277,35 @@ class Person extends Thing {
 
   get honorificPrefix(){ return this.model.honorificPrefix; }
   set honorificPrefix(value){
-    if(Thing.isEmpty(value)){ this.model.honorificPrefix = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.honorificPrefix = value }
     else { Thing.logError(this.type+': honorificPrefix must be a string', 'type') }
   }
 
   get honorificSuffix(){ return this.model.honorificSuffix; }
   set honorificSuffix(value){
-    if(Thing.isEmpty(value)){ this.model.honorificSuffix = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.honorificSuffix = value }
     else { Thing.logError(this.type+': honorificSuffix must be a string', 'type') }
   }
 
   get isicV4(){ return this.model.isicV4; }
   set isicV4(value){
-    if(Thing.isEmpty(value)){ this.model.isicV4 = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.isicV4 = value }
     else { Thing.logError(this.type+': isicV4 must be a string', 'type') }
   }
 
   get jobTitle(){ return this.model.jobTitle; }
   set jobTitle(value){
-    if(Thing.isEmpty(value)){ this.model.jobTitle = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.jobTitle = value }
     else { Thing.logError(this.type+': jobTitle must be a string', 'type') }
   }
 
   get knows(){ return this.model.knows; }
   set knows(value){
-    if(Thing.isEmpty(value)){ this.model.knows = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.knows = value }
     else if(Thing.isObject(value)){ this.model.knows = value }
     else if(Thing.isArray(value)){ this.model.knows = value }
@@ -315,7 +314,7 @@ class Person extends Thing {
 
   get makesOffer(){ return this.model.makesOffer; }
   set makesOffer(value){
-    if(Thing.isEmpty(value)){ this.model.makesOffer = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.makesOffer = value }
     else if(Thing.isObject(value)){ this.model.makesOffer = value }
     else if(Thing.isArray(value)){ this.model.makesOffer = value }
@@ -324,7 +323,7 @@ class Person extends Thing {
 
   get memberOf(){ return this.model.memberOf; }
   set memberOf(value){
-    if(Thing.isEmpty(value)){ this.model.memberOf = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.memberOf = value }
     else if(Thing.isObject(value)){ this.model.memberOf = value }
     else if(Thing.isArray(value)){ this.model.memberOf = value }
@@ -333,14 +332,14 @@ class Person extends Thing {
 
   get naics(){ return this.model.naics; }
   set naics(value){
-    if(Thing.isEmpty(value)){ this.model.naics = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.naics = value }
     else { Thing.logError(this.type+': naics must be a string', 'type') }
   }
 
   get nationality(){ return this.model.nationality; }
   set nationality(value){
-    if(Thing.isEmpty(value)){ this.model.nationality = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.nationality = value }
     else if(Thing.isObject(value)){ this.model.nationality = value }
     else if(Thing.isArray(value)){ this.model.nationality = value }
@@ -349,7 +348,7 @@ class Person extends Thing {
 
   get netWorth(){ return this.model.netWorth; }
   set netWorth(value){
-    if(Thing.isEmpty(value)){ this.model.netWorth = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.netWorth = value }
     else if(Thing.isObject(value)){ this.model.netWorth = value }
     else if(Thing.isNumber(value)){ this.model.netWorth = value }
@@ -358,7 +357,7 @@ class Person extends Thing {
 
   get owns(){ return this.model.owns; }
   set owns(value){
-    if(Thing.isEmpty(value)){ this.model.owns = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.owns = value }
     else if(Thing.isObject(value)){ this.model.owns = value }
     else if(Thing.isArray(value)){ this.model.owns = value }
@@ -367,7 +366,7 @@ class Person extends Thing {
 
   get parent(){ return this.model.parent; }
   set parent(value){
-    if(Thing.isEmpty(value)){ this.model.parent = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.parent = value }
     else if(Thing.isObject(value)){ this.model.parent = value }
     else if(Thing.isArray(value)){ this.model.parent = value }
@@ -376,7 +375,7 @@ class Person extends Thing {
 
   get performerIn(){ return this.model.performerIn; }
   set performerIn(value){
-    if(Thing.isEmpty(value)){ this.model.performerIn = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.performerIn = value }
     else if(Thing.isObject(value)){ this.model.performerIn = value }
     else if(Thing.isArray(value)){ this.model.performerIn = value }
@@ -385,7 +384,7 @@ class Person extends Thing {
 
   get relatedTo(){ return this.model.relatedTo; }
   set relatedTo(value){
-    if(Thing.isEmpty(value)){ this.model.relatedTo = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.relatedTo = value }
     else if(Thing.isObject(value)){ this.model.relatedTo = value }
     else if(Thing.isArray(value)){ this.model.relatedTo = value }
@@ -394,7 +393,7 @@ class Person extends Thing {
 
   get seeks(){ return this.model.seek; }
   set seeks(value){
-    if(Thing.isEmpty(value)){ this.model.seeks = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.seeks = value }
     else if(Thing.isObject(value)){ this.model.seeks = value }
     else if(Thing.isArray(value)){ this.model.seeks = value }
@@ -403,7 +402,7 @@ class Person extends Thing {
 
   get sibling(){ return this.model.sibling; }
   set sibling(value){
-    if(Thing.isEmpty(value)){ this.model.sibling = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.sibling = value }
     else if(Thing.isObject(value)){ this.model.sibling = value }
     else if(Thing.isArray(value)){ this.model.sibling = value }
@@ -412,7 +411,7 @@ class Person extends Thing {
 
   get sponsor(){ return this.model.sponsor; }
   set sponsor(value){
-    if(Thing.isEmpty(value)){ this.model.sponsor = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.sponsor = value }
     else if(Thing.isObject(value)){ this.model.sponsor = value }
     else if(Thing.isArray(value)){ this.model.sponsor = value }
@@ -421,7 +420,7 @@ class Person extends Thing {
 
   get spouse(){ return this.model.spouse; }
   set spouse(value){
-    if(Thing.isEmpty(value)){ this.model.spouse = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.spouse = value }
     else if(Thing.isObject(value)){ this.model.spouse = value }
     else if(Thing.isArray(value)){ this.model.spouse = value }
@@ -430,7 +429,7 @@ class Person extends Thing {
 
   get taxID(){ return this.model.taxID; }
   set taxID(value){
-    if(Thing.isEmpty(value)){ this.model.taxID = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.taxID = value }
     else if(Thing.isObject(value)){ this.model.taxID = value }
     else if(Thing.isArray(value)){ this.model.taxID = value }
@@ -439,7 +438,7 @@ class Person extends Thing {
 
   get telephone(){ return this.model.telephone; }
   set telephone(value){
-    if(Thing.isEmpty(value)){ this.model.telephone = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.telephone = value }
     else if(Thing.isNumber(value)){ this.model.telephone = value }
     else if(Thing.isObject(value)){ this.model.telephone = value }
@@ -449,7 +448,7 @@ class Person extends Thing {
 
   get vatID(){ return this.model.vatID; }
   set vatID(value){
-    if(Thing.isEmpty(value)){ this.model.vatID = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.vatID = value }
     else if(Thing.isObject(value)){ this.model.vatID = value }
     else if(Thing.isArray(value)){ this.model.vatID = value }
@@ -458,7 +457,7 @@ class Person extends Thing {
 
   get weight(){ return this.model.weight; }
   set weight(value){
-    if(Thing.isEmpty(value)){ this.model.weight = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.weight = value }
     else if(Thing.isObject(value)){ this.model.weight = value }
     else if(Thing.isNumber(value)){ this.model.weight = value }
@@ -467,7 +466,7 @@ class Person extends Thing {
 
   get workLocation(){ return this.model.workLocation; }
   set workLocation(value){
-    if(Thing.isEmpty(value)){ this.model.workLocation = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.workLocation = value }
     else if(Thing.isObject(value)){ this.model.workLocation = value }
     else if(Thing.isArray(value)){ this.model.workLocation = value }
@@ -476,7 +475,7 @@ class Person extends Thing {
 
   get worksFor(){ return this.model.worksFor; }
   set worksFor(value){
-    if(Thing.isEmpty(value)){ this.model.worksFor = EMPTY}
+    if(Thing.isEmpty(value)){ return }
     else if(Thing.isString(value)){ this.model.worksFor = value }
     else if(Thing.isObject(value)){ this.model.worksFor = value }
     else if(Thing.isArray(value)){ this.model.worksFor = value }
