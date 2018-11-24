@@ -15,7 +15,7 @@ class Person extends Thing {
         this.affiliation = model.affiliation;
         //this.alumniOf = model.alumniOf;
         //this.award = model.award;
-        //this.birthDay = model.birthDay;
+        this.birthDay = model.birthDay;
         //this.birthPlace = model.birthPlace;
         //this.brand = model.brand;
         this.children = model.children;
