@@ -55,10 +55,19 @@ describe('Person', function() {
       });
     });
 
+    describe('person.birthDay', function() {
+      it('should set/get the birthDay property', function() {
+          const now = new Date();
+        person.birthDay = now;
+        assert.equal(person.birthDay, now);
+      });
+    });
+
+
     describe('person.fullName', function() {
       it('should return the given and family names in a single string', function() {
-        assert.equal(person.fullName, 'Jose L. Barrios');
-        person.additionalName = '';
+        assert.equal(person.fullName, 'Jose Luis Barrios');
+        person.additionalName = null;
         assert.equal(person.fullName, 'Jose Barrios');
 
       });
