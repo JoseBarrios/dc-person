@@ -58,8 +58,8 @@ describe('Person', function() {
     describe('person.birthDay', function() {
       it('should set/get the birthDay property', function() {
           const now = new Date();
-        person.birthDay = now;
-        assert.equal(person.birthDay, now);
+          person.birthDay = now;
+          assert.equal(person.birthDay, now);
       });
     });
 

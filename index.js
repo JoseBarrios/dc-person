@@ -103,10 +103,11 @@ class Person extends Thing {
 
     get birthDay(){ return this.model.birthDay; }
     set birthDay(value){
-        if(Thing.isNull(value)){ delete this.model.birthDay; }
-        else if(Thing.isString(value)){ this.model.birthDay = value }
-        else if(Thing.isObject(value)){ this.model.birthDay = value }
-        else if(Thing.isNumber(value)){ this.model.birthDay = value }
+        console.log("BIRTHDAY", value);
+        if(Thing.isNull(value)){ console.log("NULL"); delete this.model.birthDay; }
+        else if(Thing.isString(value)){console.log("STRING"); this.model.birthDay = value }
+        else if(Thing.isNumber(value)){ console.log("NUM"); this.model.birthDay = value }
+        else if(Thing.isObject(value)){ console.log("OBJ"); this.model.birthDay = value }
         else { Thing.logError(this.type+': birthDay must be an object, or number (timestamp)', 'type') }
     }
 
