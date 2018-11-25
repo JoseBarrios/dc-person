@@ -61,6 +61,7 @@ describe('Person', function() {
           const now = Person.moment();
           person.birthDay = now.format();
           assert.equal(person.birthDay, now.utc().format());
+          assert.equal(person.model.birthDay, now.utc().format());
       });
     });
 
@@ -73,6 +74,11 @@ describe('Person', function() {
       });
     });
 
+
+
+
+
+
     describe('#isValidKey', function() {
       it('should return true if its a valid object property', function() {
         assert.equal(person.isValidKey('givenName'), true);
@@ -80,6 +86,8 @@ describe('Person', function() {
 
       });
     });
+
+
 
 
 
