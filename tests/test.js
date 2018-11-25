@@ -59,9 +59,9 @@ describe('Person', function() {
     describe('person.birthDay', function() {
       it('should set/get the birthDay property', function() {
           const now = Person.moment();
-          person.birthDay = now.format();
-          assert.equal(person.birthDay, now.utc().format());
-          assert.equal(person.model.birthDay, now.utc().format());
+          person.birthDay = "10/25/86";
+          assert.equal(person.birthDay, "1986-10-25T07:00:00Z");
+          assert.equal(person.model.birthDay, "1986-10-25T07:00:00Z");
       });
     });
 
