@@ -11,13 +11,15 @@ model.email = 'jose@barrios.io'
 let person = new Person(model);
 person.muteErrors = true;
 
+const TYPE = "PersonDataController";
+
 describe('Person', function() {
 
   describe('Static Methods', function() {
 
     describe('Person.type', function() {
       it('should return the class type', function() {
-        assert.equal(Person.type, 'Person' );
+        assert.equal(Person.type, TYPE);
       });
     });
 
@@ -25,10 +27,9 @@ describe('Person', function() {
 
   describe('Instance', function() {
 
-
     describe('person.type', function() {
       it('should return the class type', function() {
-        assert.equal(person.type, 'Person' );
+        assert.equal(person.type, TYPE );
         assert.equal(Person.type, person.type );
       });
     });
@@ -57,12 +58,11 @@ describe('Person', function() {
 
     describe('person.birthDay', function() {
       it('should set/get the birthDay property', function() {
-          const now = new Date();
-          person.birthDay = now;
-          assert.equal(person.birthDay, now);
+          const now = Person.moment();
+          person.birthDay = now.format();
+          assert.equal(person.birthDay, now.utc().format());
       });
     });
-
 
     describe('person.fullName', function() {
       it('should return the given and family names in a single string', function() {
