@@ -1,6 +1,6 @@
 {
   "name": "dc-person",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "Person class that conforms to Schema.org",
   "main": "index.js",
   "scripts": {
