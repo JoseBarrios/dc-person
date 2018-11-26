@@ -134,10 +134,9 @@ class PersonDataController extends ThingDataController {
         return this.model.children;
     }
     set children(value){
-        //console.log("SET", value);
-        //if(ThingDataController.isNullOrUndefined(value)){ delete this.model.children; }
+        if(ThingDataController.isNullOrUndefined(value)){ delete this.model.children; }
         if(ThingDataController.isArray(value)){ this.model.children = value; }
-        //else { ThingDataController.logError(this.type+': children must be an array of Persons', 'type') }
+        else { ThingDataController.logError(this.type+': children must be an array of Persons', 'type') }
     }
 
     get colleague(){ return this.model.colleague; }

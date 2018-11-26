@@ -76,8 +76,6 @@ describe('Person', function() {
           children.push(child.model);
           test.children = children;
           assert.deepEqual(test.children, children);
-
-          console.log(test.model)
       });
     });
 
