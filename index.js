@@ -9,6 +9,9 @@ class PersonDataController extends ThingDataController {
     constructor(model){
         super(model);
         this.model = model || {};
+        // Doesn't set anything, just inits
+        // immutable property
+        this.type = this.model.type;
 
         this.additionalName = this.model.additionalName;
         this.address = this.model.address;
@@ -18,7 +21,7 @@ class PersonDataController extends ThingDataController {
         this.birthDate = this.model.birthDate;
         //this.birthPlace = this.model.birthPlace;
         //this.brand = this.model.brand;
-        this.children = this.model.children;
+        //this.children = this.model.children || [];
         //this.colleague = this.model.colleague;
         this.contactPoint = this.model.contactPoint;
         //this.deathDate = this.model.deathDate;
@@ -60,8 +63,10 @@ class PersonDataController extends ThingDataController {
         //this.weight = this.model.weight;
         //this.workLocation = this.model.workLocation;
         this.worksFor = this.model.worksFor;
-
     }
+
+    get type(){ return "person"; }
+    set type(value){ this.model.type = "person"; }
 
     get additionalName(){ return this.model.additionalName }
     set additionalName(value){
@@ -104,7 +109,7 @@ class PersonDataController extends ThingDataController {
     get birthDate(){ return this.model.birthDate; }
     set birthDate(value){
         if(ThingDataController.isNullOrUndefined(value)){ delete this.model.birthDate; }
-        else if(ThingDataController.isDate(value)){ this.model.birthDate = this.controller.dateTime.setDateTime(value); }
+        else if(ThingDataController.isDate(value)){ this.model.birthDate = ThingDataController.dateTime.setDateTime(value); }
         else { ThingDataController.logError(this.type+': birthDate must be a date', 'type') }
     }
 
@@ -124,13 +129,15 @@ class PersonDataController extends ThingDataController {
         else { ThingDataController.logError(this.type+': brand must be a string or object', 'type') }
     }
 
-    get children(){ return this.model.children; }
+    get children(){
+        if(!this.model.children){this.model.children = []; }
+        return this.model.children;
+    }
     set children(value){
-        if(ThingDataController.isNullOrUndefined(value) || ThingDataController.isUndefined(value)){ delete this.model.children; }
-        else if(ThingDataController.isString(value)){ this.model.children = value }
-        else if(ThingDataController.isObject(value)){ this.model.children = value }
-        else if(ThingDataController.isArray(value)){ this.model.children = value }
-        else { ThingDataController.logError(this.type+': children must be a string, object, or array', 'type') }
+        //console.log("SET", value);
+        //if(ThingDataController.isNullOrUndefined(value)){ delete this.model.children; }
+        if(ThingDataController.isArray(value)){ this.model.children = value; }
+        //else { ThingDataController.logError(this.type+': children must be an array of Persons', 'type') }
     }
 
     get colleague(){ return this.model.colleague; }

@@ -11,7 +11,7 @@ model.email = 'jose@barrios.io'
 let person = new Person(model);
 person.muteErrors = true;
 
-const TYPE = "PersonDataController";
+const TYPE = "person";
 
 describe('Person', function() {
 
@@ -59,11 +59,58 @@ describe('Person', function() {
     describe('person.birthDate', function() {
       it('should set/get the birthDate property', function() {
           const test = new Person();
-          test.birthDate = "10/25/86"
-          assert.equal(test.birthDate, "1986-10-25T07:00:00Z");
-          assert.equal(test.model.birthDate, "1986-10-25T07:00:00Z");
+          test.birthDate = "1986-10-25T15:53:00";
+          assert.equal(test.birthDate, "1986-10-25T22:53:00Z");
+          assert.equal(test.model.birthDate, "1986-10-25T22:53:00Z");
       });
     });
+
+    describe('person.children', function() {
+      it('should set/get the children property', function() {
+          const test = new Person();
+          assert.deepEqual(test.children, []);
+          test.children.push(new Person().model)
+          assert.deepEqual(test.children, [new Person().model]);
+          const children = [];
+          const child = new Person();
+          children.push(child.model);
+          test.children = children;
+          assert.deepEqual(test.children, children);
+
+          console.log(test.model)
+      });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /////////////////////////////////////
+      //
+      // NON STANDARD
+      //
+      ////////////////////////////////////
 
     describe('person.fullName', function() {
       it('should return the given and family names in a single string', function() {
@@ -73,11 +120,6 @@ describe('Person', function() {
 
       });
     });
-
-
-
-
-
 
     describe('#isValidKey', function() {
       it('should return true if its a valid object property', function() {
