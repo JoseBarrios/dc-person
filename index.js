@@ -15,7 +15,7 @@ class PersonDataController extends ThingDataController {
         this.affiliation = this.model.affiliation;
         //this.alumniOf = this.model.alumniOf;
         //this.award = this.model.award;
-        this.birthDay = this.model.birthDay;
+        this.birthDate = this.model.birthDate;
         //this.birthPlace = this.model.birthPlace;
         //this.brand = this.model.brand;
         this.children = this.model.children;
@@ -101,11 +101,11 @@ class PersonDataController extends ThingDataController {
         else { ThingDataController.logError(this.type+': award must be a string', 'type') }
     }
 
-    get birthDay(){ return this.model.birthDay; }
-    set birthDay(value){
-        if(ThingDataController.isNullOrUndefined(value)){ delete this.model.birthDay; }
-        if(ThingDataController.isDate(value)){ this.model.birthDay = this.controller.dateTime.setDateTime(value); }
-        else { ThingDataController.logError(this.type+': birthDay must be a date', 'type') }
+    get birthDate(){ return this.model.birthDate; }
+    set birthDate(value){
+        if(ThingDataController.isNullOrUndefined(value)){ delete this.model.birthDate; }
+        else if(ThingDataController.isDate(value)){ this.model.birthDate = this.controller.dateTime.setDateTime(value); }
+        else { ThingDataController.logError(this.type+': birthDate must be a date', 'type') }
     }
 
     get birthPlace(){ return this.model.birthPlace; }
