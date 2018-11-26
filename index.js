@@ -103,8 +103,8 @@ class PersonDataController extends ThingDataController {
 
     get birthDay(){ return this.model.birthDay; }
     set birthDay(value){
-        //if(ThingDataController.isNullOrUndefined(value)){ delete this.model.birthDay; }
-        if(ThingDataController.isDate(value)){ this.model.birthDay = new ThingDataController.dateTime(value).value; }
+        if(ThingDataController.isNullOrUndefined(value)){ delete this.model.birthDay; }
+        if(ThingDataController.isDate(value)){ this.model.birthDay = this.controller.dateTime.setDateTime(value); }
         else { ThingDataController.logError(this.type+': birthDay must be a date', 'type') }
     }
 
