@@ -49,6 +49,7 @@ class PersonDataController extends ThingDataController {
         //this.naics = this.model.naics;
         //this.nationality = this.model.nationality;
         //this.netWorth = this.model.netWorth;
+        //this.knowsLanguage = this.model.knowsLanguage;
         //this.owns = this.model.owns;
         this.parent = this.model.parent;
         //this.performerIn = this.model.performerIn;
@@ -363,6 +364,16 @@ class PersonDataController extends ThingDataController {
         else if(ThingDataController.isObject(value)){ this.model.netWorth = value }
         else if(ThingDataController.isNumber(value)){ this.model.netWorth = value }
         else { ThingDataController.logError(this.type+': netWorth must be a string, object, or number', 'type') }
+    }
+
+    get knowsLanguage(){
+        if(!this.model.knowsLanguage){this.model.knowsLanguage = []; }
+        return this.model.knowsLanguage;
+    }
+    set knowsLanguage(value){
+        if(ThingDataController.isNullOrUndefined(value)){ delete this.model.knowsLanguage; }
+        if(ThingDataController.isArray(value)){ this.model.knowsLanguage = value; }
+        else { ThingDataController.logError(this.type+': knowsLanguage must be an array of String', 'type') }
     }
 
     get owns(){ return this.model.owns; }

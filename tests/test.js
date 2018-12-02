@@ -79,6 +79,19 @@ describe('Person', function() {
       });
     });
 
+    describe('person.knowsLanguage', function() {
+      it('should set/get the knowsLanguage property', function() {
+          const test = new Person();
+          assert.deepEqual(test.knowsLanguage, []);
+          test.knowsLanguage.push("English")
+          const knowsLanguage = ["English"];
+          assert.deepEqual(test.knowsLanguage, knowsLanguage);
+          knowsLanguage.push("Spanish");
+          test.knowsLanguage = knowsLanguage;
+          assert.deepEqual(test.knowsLanguage, knowsLanguage);
+      });
+    });
+
 
 
 
