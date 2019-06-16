@@ -24,6 +24,6 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "dc-thing": "^0.3.7"
+    "dc-thing": "^0.3.14"
   }
 }
